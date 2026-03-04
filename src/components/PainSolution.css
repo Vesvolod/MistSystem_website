@@ -1,0 +1,122 @@
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.pain-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 40px 32px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pain-card:hover {
+  transform: translateY(-4px);
+}
+
+.pain-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* «Без MistSystem» — красноватый accent */
+.pain-card-bad {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.02) 100%);
+}
+
+.pain-card-bad::before {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.05));
+}
+
+.pain-card-bad .pain-label {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* «С MistSystem» — синий accent */
+.pain-card-good {
+  background: linear-gradient(135deg, rgba(244, 199, 142, 0.14) 0%, rgba(244, 199, 142, 0.04) 100%);
+}
+
+.pain-card-good::before {
+  background: linear-gradient(135deg, rgba(244, 199, 142, 0.6), rgba(244, 199, 142, 0.08));
+}
+
+.pain-card-good .pain-label {
+  color: var(--accent);
+  background: rgba(244, 199, 142, 0.16);
+  border-color: rgba(244, 199, 142, 0.6);
+}
+
+.pain-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid;
+  margin-bottom: 20px;
+}
+
+.pain-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #111111;
+}
+
+.pain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pain-list li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.75);
+  padding-left: 24px;
+  position: relative;
+}
+
+.pain-card-bad .pain-list li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pain-card-good .pain-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .pain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pain-card {
+    padding: 32px 24px;
+  }
+}

@@ -1,0 +1,340 @@
+.how-section {
+  background: var(--bg-dark-2);
+}
+
+.how-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.how-diagram {
+  width: 100%;
+  max-width: 780px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 22px 22px 26px;
+  position: relative;
+  box-shadow:
+    0 20px 55px rgba(15, 23, 42, 0.14),
+    0 0 0 1px rgba(148, 163, 184, 0.16);
+}
+
+.how-diagram-inner {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-diagram-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.how-mist-visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: how-fade-up 0.7s ease 0.15s forwards;
+}
+
+.how-temp-bar {
+  margin-top: 28px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(220, 80, 60, 0.16) 0%,
+    rgba(212, 148, 76, 0.2) 30%,
+    rgba(116, 180, 220, 0.18) 65%,
+    rgba(70, 160, 210, 0.28) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: how-fade-up 0.7s ease 0.35s forwards;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.how-temp-track {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-temp-label {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.how-temp-label-hot {
+  color: rgba(220, 80, 60, 0.9);
+}
+
+.how-temp-label-cool {
+  color: rgba(46, 144, 203, 0.95);
+}
+
+@keyframes how-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.how-node {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.how-node-card {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.015);
+  border: 1.5px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.how-node-label {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8a929c;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 96px;
+}
+
+.how-node-active {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.how-node-active .how-node-card {
+  background: rgba(212, 148, 76, 0.06);
+  border-color: rgba(212, 148, 76, 0.25);
+  box-shadow: 0 8px 30px rgba(212, 148, 76, 0.14);
+}
+
+.how-node-active .how-node-label {
+  color: #d4944c;
+}
+
+.how-copy {
+  max-width: 460px;
+  margin-left: auto;
+}
+
+.how-heading {
+  font-size: 42px;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.how-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #6b7280;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+/* Список преимуществ — тот же визуальный стиль, что и у списка в InstallationMap */
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-features li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.product-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #fbbf77 0%, #e89c4c 45%, rgba(249, 250, 251, 0.1) 80%);
+  box-shadow: 0 0 0 4px rgba(248, 204, 148, 0.25);
+}
+
+.how-steps-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.how-step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  text-align: left;
+}
+
+.how-step-row-active {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+}
+
+.how-step-index {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.04);
+  color: #aab0b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+}
+
+.how-step-row-active .how-step-index {
+  background: #d4944c;
+  color: #ffffff;
+}
+
+.how-step-main {
+  flex: 1;
+}
+
+.how-step-main-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.how-step-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #8a929c;
+  transition: color 0.3s;
+}
+
+.how-step-row-active .how-step-title {
+  color: #111827;
+}
+
+.how-step-stat {
+  font-size: 20px;
+  font-weight: 900;
+  color: transparent;
+  background: linear-gradient(135deg, #d4944c, #e8b870);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.how-step-row-active .how-step-stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.how-step-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.how-step-row-active .how-step-desc {
+  max-height: 80px;
+  opacity: 1;
+}
+
+.how-progress {
+  margin-top: 24px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.how-progress-fill {
+  height: 100%;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #d4944c, #e8b870);
+  transition: width 0.5s ease;
+}
+
+@media (max-width: 960px) {
+  .how-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .how-diagram {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .how-diagram {
+    padding: 24px 20px 28px;
+  }
+
+  .how-diagram-inner {
+    height: 280px;
+  }
+
+  .how-heading {
+    font-size: 32px;
+  }
+}

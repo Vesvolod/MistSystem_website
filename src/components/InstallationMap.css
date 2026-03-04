@@ -1,0 +1,109 @@
+.installation-section {
+  background: var(--bg-light);
+}
+
+.installation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.installation-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installation-card {
+  width: 100%;
+  max-width: 780px;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow:
+    0 20px 55px rgba(15, 23, 42, 0.14),
+    0 0 0 1px rgba(148, 163, 184, 0.16);
+  padding: 22px 22px 26px;
+}
+
+.installation-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.installation-legend {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  align-items: center;
+}
+
+.installation-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.installation-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(15, 23, 42, 0.12);
+}
+
+.installation-legend-label {
+  font-weight: 500;
+}
+
+.installation-copy .section-header {
+  margin-bottom: 24px;
+}
+
+.installation-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installation-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.installation-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  margin-top: 7px;
+  background: radial-gradient(circle, #fbbf77 0%, #e89c4c 45%, rgba(249, 250, 251, 0.1) 80%);
+  box-shadow: 0 0 0 4px rgba(248, 204, 148, 0.25);
+  flex-shrink: 0;
+}
+
+.installation-step-text {
+  flex: 1;
+}
+
+@media (max-width: 960px) {
+  .installation-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .installation-card {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
