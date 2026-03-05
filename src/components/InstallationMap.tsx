@@ -1,5 +1,4 @@
 import './InstallationMap.css'
-import { useState } from 'react'
 import { useTranslation } from '../context/LanguageContext'
 import InstallationDiagram from './InstallationDiagram'
 

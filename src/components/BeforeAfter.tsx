@@ -8,7 +8,6 @@ export function BeforeAfter() {
   const [isDragging, setIsDragging] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const frameRef = useRef<HTMLDivElement | null>(null)
-  const directionRef = useRef(1)
   const phaseRef = useRef(0)
 
   const clamp = (v: number) => Math.min(100, Math.max(0, v))
