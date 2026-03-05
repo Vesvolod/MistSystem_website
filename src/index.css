@@ -13,10 +13,35 @@
   --glass-border: rgba(15, 23, 42, 0.06);
   --card-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
 
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI',
-    sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Единая типографика: один шрифт, фиксированная шкала размеров и начертаний */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-caption: 13px;
+  --text-body: 14px;
+  --text-body-lg: 15px;
+  --text-lead: 16px;
+  --text-subtitle: 18px;
+  --text-h3: 20px;
+  --text-h2: 22px;
+  --text-h1: clamp(32px, 4.5vw, 48px);
+  --text-hero: clamp(32px, 4.2vw, 60px);
+  --text-display: clamp(32px, 4vw, 48px);
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+  --lh-loose: 1.7;
+
+  font-family: var(--font-family);
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-normal);
   letter-spacing: -0.01em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,6 +65,7 @@ body {
   min-height: 100vh;
   background: var(--bg-dark);
   color: var(--text-primary);
+  font-size: var(--text-body);
 }
 
 a {
@@ -56,7 +82,8 @@ section {
 }
 
 h1, h2, h3, h4 {
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-weight: var(--fw-bold);
   letter-spacing: -0.03em;
 }
 
@@ -117,14 +144,16 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-  font-size: clamp(32px, 4.5vw, 48px);
-  line-height: 1.1;
+  font-size: var(--text-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
   margin-bottom: 16px;
 }
 
 .section-subtitle {
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: var(--text-subtitle);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-relaxed);
   color: var(--text-muted);
 }
 
@@ -136,8 +165,9 @@ h1, h2, h3, h4 {
 .btn {
   border-radius: 999px;
   padding: 14px 32px;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-lead);
+  font-weight: var(--fw-semibold);
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;

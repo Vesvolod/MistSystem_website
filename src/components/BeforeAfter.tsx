@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './BeforeAfter.css'
 import { useTranslation } from '../context/LanguageContext'
 
@@ -6,7 +6,10 @@ export function BeforeAfter() {
   const { t } = useTranslation()
   const [value, setValue] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
   const frameRef = useRef<HTMLDivElement | null>(null)
+  const directionRef = useRef(1)
+  const phaseRef = useRef(0)
 
   const clamp = (v: number) => Math.min(100, Math.max(0, v))
 
@@ -35,7 +38,26 @@ export function BeforeAfter() {
 
   const handleTouchEnd: React.TouchEventHandler<HTMLDivElement> = () => {
     setIsDragging(false)
+    setIsHovering(false)
   }
+
+  // Автоматическое плавное движение слайдера, пока пользователь не взаимодействует
+  useEffect(() => {
+    if (isDragging || isHovering) return
+
+    const id = window.setInterval(() => {
+      // Плавная авто-анимация по синусоиде: от ~3% до ~97% без резких смен направления
+      const amplitude = 47 // 50 ± 47 → 3–97
+      const speed = 0.03
+
+      phaseRef.current += speed
+      const next = 50 + amplitude * Math.sin(phaseRef.current)
+
+      setValue(next)
+    }, 40)
+
+    return () => window.clearInterval(id)
+  }, [isDragging, isHovering])
 
   return (
     <section id="before-after" className="section section-animated before-after-section">
@@ -61,8 +83,13 @@ export function BeforeAfter() {
             aria-valuemin={0}
             aria-valuemax={100}
             aria-label={t('beforeAfter.sliderLabel')}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
             onMouseMove={handleMouseMove}
-            onTouchStart={handleTouchStart}
+            onTouchStart={(event) => {
+              setIsHovering(true)
+              handleTouchStart(event)
+            }}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             onTouchCancel={handleTouchEnd}
@@ -70,7 +97,10 @@ export function BeforeAfter() {
             <div className="before-after-image before-image">
               <img src="/images/terrace-before.jpg" alt={t('beforeAfter.beforeAlt')} />
             </div>
-            <div className="before-after-image after-image" style={{ width: `${value}%` }}>
+            <div
+              className="before-after-image after-image"
+              style={{ ['--split' as string]: `${value}%` }}
+            >
               <img src="/images/terrace-after.jpg" alt={t('beforeAfter.afterAlt')} />
             </div>
             <div

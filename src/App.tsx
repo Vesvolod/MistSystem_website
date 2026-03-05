@@ -20,7 +20,7 @@ function App() {
     <div className="page-root">
       <header className="page-header">
         <div className="container header-inner">
-          <div className="header-logo metallic-text metallic-text-hover">MistSystem</div>
+          <div className="header-logo metallic-text metallic-text-hover">Mist System</div>
           <nav className="header-nav">
             <a href="#benefits">{t('nav.benefits')}</a>
             <a href="#product">{t('nav.product')}</a>
@@ -28,27 +28,28 @@ function App() {
             <a href="#cases">{t('nav.cases')}</a>
             <a href="#pricing">{t('nav.pricing')}</a>
           </nav>
-          <div className="header-actions">
-            <div className="lang-switcher" role="group" aria-label="Language">
-              <button
-                type="button"
-                className={locale === 'en' ? 'lang-btn active' : 'lang-btn'}
-                onClick={() => setLocale('en')}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                className={locale === 'id' ? 'lang-btn active' : 'lang-btn'}
-                onClick={() => setLocale('id')}
-              >
-                ID
-              </button>
-            </div>
-            <a href="#lead-form" className="btn btn-primary header-cta">
-              {t('nav.cta')}
-            </a>
+
+          <div className="lang-switcher" role="group" aria-label="Language">
+            <button
+              type="button"
+              className={locale === 'en' ? 'lang-btn active' : 'lang-btn'}
+              onClick={() => setLocale('en')}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              className={locale === 'id' ? 'lang-btn active' : 'lang-btn'}
+              onClick={() => setLocale('id')}
+            >
+              ID
+            </button>
           </div>
+
+          <a href="#lead-form" className="btn btn-primary header-cta" aria-label={t('nav.cta')}>
+            <span className="header-cta-long">{t('nav.cta')}</span>
+            <span className="header-cta-short">{t('nav.ctaShort')}</span>
+          </a>
         </div>
       </header>
 
@@ -69,7 +70,7 @@ function App() {
       <footer className="page-footer">
         <div className="container footer-inner">
           <div className="footer-main">
-            <div className="footer-logo">MistSystem</div>
+            <div className="footer-logo">Mist System</div>
             <p className="footer-copy">{t('footer.copy')}</p>
           </div>
           <div className="footer-nav">
@@ -79,7 +80,7 @@ function App() {
             <a href="#lead-form">{t('nav.contacts')}</a>
           </div>
           <div className="footer-meta">
-            <p>© MistSystem, {new Date().getFullYear()}</p>
+            <p>© Mist System, {new Date().getFullYear()}</p>
             <p>{t('footer.rights')}</p>
           </div>
         </div>

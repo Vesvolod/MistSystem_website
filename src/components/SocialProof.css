@@ -23,8 +23,9 @@
   position: absolute;
   top: 20px;
   right: 24px;
+  font-family: var(--font-family);
   font-size: 64px;
-  font-weight: 900;
+  font-weight: var(--fw-black);
   line-height: 1;
   background: linear-gradient(135deg, var(--accent), transparent);
   -webkit-background-clip: text;
@@ -36,8 +37,9 @@
 
 .social-label {
   display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
@@ -49,15 +51,17 @@
 }
 
 .social-title {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-size: var(--text-subtitle);
+  font-weight: var(--fw-bold);
   color: #111111;
   margin-bottom: 12px;
 }
 
 .social-text {
-  font-size: 14px;
-  line-height: 1.7;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  line-height: var(--lh-loose);
   color: rgba(15, 23, 42, 0.7);
   margin-bottom: 24px;
   font-style: italic;
@@ -79,8 +83,9 @@
 }
 
 .social-author {
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-semibold);
   color: rgba(15, 23, 42, 0.6);
 }
 

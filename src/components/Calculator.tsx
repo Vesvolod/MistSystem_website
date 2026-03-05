@@ -80,82 +80,89 @@ export function Calculator() {
           <p className="calculator-desc">{t('calculator.subtitleSimple')}</p>
         </header>
 
-        <div className="calculator-body">
-          <div className="calculator-inputs">
-            <div className="calc-field">
-              <label htmlFor="area">{t('calculator.areaLabel')}</label>
-              <div className="calc-field-row">
+        <div className="calculator-stack">
+          {/* Ввод данных */}
+          <div className="calculator-input-card">
+            <div className="calculator-input-row">
+              <div className="calc-field calc-field-area">
+                <label htmlFor="area">{t('calculator.areaLabel')}</label>
+                <div className="calc-field-row">
+                  <input
+                    id="area"
+                    type="range"
+                    min={10}
+                    max={600}
+                    value={area}
+                    onChange={(e) => setArea(Number(e.target.value))}
+                  />
+                  <span className="calc-value">{area} m²</span>
+                </div>
+              </div>
+
+              <div className="calc-field calc-field-check">
+                <label htmlFor="avgCheck">{t('calculator.avgCheckShort')}</label>
                 <input
-                  id="area"
-                  type="range"
-                  min={10}
-                  max={600}
-                  value={area}
-                  onChange={(e) => setArea(Number(e.target.value))}
+                  id="avgCheck"
+                  type="number"
+                  min={0}
+                  step={10000}
+                  value={avgCheck}
+                  onChange={(e) => setAvgCheck(Number(e.target.value) || 0)}
                 />
-                <span className="calc-value">{area} m²</span>
               </div>
             </div>
-            <div className="calc-field">
-              <label htmlFor="avgCheck">{t('calculator.avgCheckShort')}</label>
-              <input
-                id="avgCheck"
-                type="number"
-                min={0}
-                step={10000}
-                value={avgCheck}
-                onChange={(e) => setAvgCheck(Number(e.target.value) || 0)}
-              />
-            </div>
+
+            <p className="calculator-assumptions">{t('calculator.assumptionNote')}</p>
           </div>
 
-          <div className="calculator-infographic">
-            <div className="infographic-card infographic-model">
-              <p className="infographic-label">{t('calculator.infographic.model')}</p>
-              <p className="infographic-value infographic-model-name">{result.model.label}</p>
-              <p className="infographic-sublabel">
-                {result.model.minArea}–{result.model.maxArea} m² · {result.model.powerW}W
-              </p>
-            </div>
+          {/* Результаты: модель, цена, окупаемость, прибыль */}
+          <div className="calculator-summary-card">
+            <div className="summary-columns">
+              <div className="summary-column summary-column-model">
+                <p className="summary-label">{t('calculator.infographic.model')}</p>
+                <p className="summary-value summary-model-name">{result.model.label}</p>
+                <p className="summary-sublabel">
+                  {result.model.minArea}–{result.model.maxArea} m² · {result.model.powerW}W
+                </p>
+              </div>
 
-            <div className="infographic-card">
-              <p className="infographic-label">{t('calculator.infographic.systemCost')}</p>
-              <p className="infographic-value">{fmt(result.model.price)}</p>
-            </div>
+              <div className="summary-column summary-column-investment">
+                <p className="summary-label">{t('calculator.infographic.systemCost')}</p>
+                <p className="summary-value">{fmt(result.model.price)}</p>
 
-            <div className="infographic-card infographic-revenue">
-              <p className="infographic-label">{t('calculator.infographic.revenueDay')}</p>
-              <p className="infographic-value">{fmt(result.revenuePerDay)}</p>
-              <p className="infographic-sublabel">
-                {t('calculator.infographic.extraGuests').replace('{n}', String(result.extraGuests))}
-              </p>
-            </div>
+                <p className="summary-sublabel">
+                  {t('calculator.infographic.payback')}
+                </p>
+                {result.paybackMonths != null && result.paybackMonths < 120 ? (
+                  <>
+                    <p className="summary-payback">
+                      ~{result.paybackMonths}{' '}
+                      <span className="summary-payback-unit">{t('calculator.paybackMonths')}</span>
+                    </p>
+                    <div className="payback-bar">
+                      <div
+                        className="payback-bar-fill"
+                        style={{ width: `${result.paybackPct}%` }}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <p className="summary-payback">—</p>
+                )}
+              </div>
 
-            <div className="infographic-card">
-              <p className="infographic-label">{t('calculator.infographic.netProfit')}</p>
-              <p className="infographic-value infographic-highlight">{fmt(result.netProfitPerDay)}</p>
-              <p className="infographic-sublabel">{t('calculator.infographic.profitNote')}</p>
-            </div>
+              <div className="summary-column summary-column-profit">
+                <p className="summary-label">{t('calculator.infographic.netProfit')}</p>
+                <p className="summary-profit-main">{fmt(result.netProfitPerDay)}</p>
+                <p className="summary-sublabel summary-profit-note">
+                  {t('calculator.infographic.profitNote')}
+                </p>
 
-            <div className="infographic-card infographic-accent">
-              <p className="infographic-label">{t('calculator.infographic.payback')}</p>
-              {result.paybackMonths != null && result.paybackMonths < 120 ? (
-                <>
-                  <p className="infographic-value infographic-big">
-                    ~{result.paybackMonths}{' '}
-                    <span className="infographic-unit">{t('calculator.paybackMonths')}</span>
-                  </p>
-                  <div className="payback-bar">
-                    <div
-                      className="payback-bar-fill"
-                      style={{ width: `${result.paybackPct}%` }}
-                    />
-                  </div>
-                </>
-              ) : (
-                <p className="infographic-value infographic-big">—</p>
-              )}
-              <p className="infographic-note">{t('calculator.assumptionNote')}</p>
+                <p className="summary-sublabel summary-revenue-extra">
+                  {t('calculator.infographic.revenueDay')} ·{' '}
+                  {t('calculator.infographic.extraGuests').replace('{n}', String(result.extraGuests))}
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -3,24 +3,25 @@ export type Locale = 'en' | 'id'
 export const translations: Record<Locale, Record<string, string>> = {
   en: {
     // ─── Navigation ───
-    'nav.benefits': 'Why MistSystem',
+    'nav.benefits': 'Why Mist System',
     'nav.product': 'Technology',
     'nav.calculator': 'ROI Calculator',
     'nav.cases': 'Results',
     'nav.pricing': 'Solutions',
     'nav.cta': 'Get My Cooling Plan',
+    'nav.ctaShort': 'Get Plan',
     'nav.home': 'Home',
     'nav.contacts': 'Contact',
 
     // ─── Hero ───
     'hero.eyebrow': "Indonesia's No. 1 Outdoor Cooling System",
     'hero.title': 'Your terrace is losing money every hot afternoon.',
-    'hero.titleLine2': 'MistSystem fixes that.',
+    'hero.titleLine2': 'Mist System fixes that.',
     'hero.subtitle':
       'Ultra-fine mist drops the temperature by up to 10°C — instantly. No wet tables. No noisy fans. Just cool, comfortable guests who stay longer and spend more. Already trusted by 600+ venues across Indonesia.',
     'hero.ctaPrimary': 'Get My Cooling Plan',
     'hero.ctaSecondary': 'Calculate My ROI',
-    'hero.meta1': '600+ venues trust MistSystem',
+    'hero.meta1': '600+ venues trust Mist System',
     'hero.meta2': 'Up to 10°C temperature drop',
     'hero.meta3': '90% lower energy vs traditional AC',
     'hero.caption':
@@ -40,13 +41,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     'pain.title': 'Right now, heat is costing you real money.',
     'pain.subtitle':
       "Every afternoon your terrace sits empty, you're paying rent on space that produces zero revenue. Your competitors with cooled terraces? They're full.",
-    'pain.badLabel': 'Without MistSystem',
+    'pain.badLabel': 'Without Mist System',
     'pain.badTitle': 'Lost revenue, every single day',
     'pain.bad1': 'Terrace empty from 11am to 5pm — guests refuse to sit in the heat.',
     'pain.bad2': 'Walk-ins check out the view, feel the heat, and leave for a cooled venue.',
     'pain.bad3': "Fans blow hot air and add noise. AC doesn't work outdoors.",
     'pain.bad4': 'You pay full rent, full staff — but only earn revenue in the evening.',
-    'pain.goodLabel': 'With MistSystem',
+    'pain.goodLabel': 'With Mist System',
     'pain.goodTitle': 'Full terrace. All day. More revenue.',
     'pain.good1': "Guests choose your terrace even at peak heat — it's 10°C cooler.",
     'pain.good2': 'Average dwell time increases. More orders per table per day.',
@@ -54,19 +55,19 @@ export const translations: Record<Locale, Record<string, string>> = {
     'pain.good4': 'System runs for less than IDR 15,000/day in electricity.',
 
     // ─── Before / After slider ───
-    'beforeAfter.title': 'What your terrace feels like — before and after MistSystem.',
+    'beforeAfter.title': 'What your terrace feels like — before and after Mist System.',
     'beforeAfter.subtitle':
       'Slide to compare: a hot, empty terrace vs a cool, packed venue guests never want to leave.',
-    'beforeAfter.beforeLabel': 'Before MistSystem',
-    'beforeAfter.afterLabel': 'With MistSystem',
+    'beforeAfter.beforeLabel': 'Before Mist System',
+    'beforeAfter.afterLabel': 'With Mist System',
     'beforeAfter.beforeAlt': 'Hot terrace with guests uncomfortable and few people seated.',
-    'beforeAfter.afterAlt': 'Cool terrace with MistSystem, full of happy guests.',
-    'beforeAfter.sliderLabel': 'Slide to compare your terrace before and after MistSystem.',
+    'beforeAfter.afterAlt': 'Cool terrace with Mist System, full of happy guests.',
+    'beforeAfter.sliderLabel': 'Slide to compare your terrace before and after Mist System.',
 
     // ─── Benefits ───
     'benefits.title': 'Not just cooling. A business advantage.',
     'benefits.subtitle':
-      'MistSystem is the only outdoor cooling technology that combines instant comfort, premium aesthetics, and real ROI for restaurants, hotels and beach clubs.',
+      'Mist System is the only outdoor cooling technology that combines instant comfort, premium aesthetics, and real ROI for restaurants, hotels and beach clubs.',
     'benefit1.title': 'Unlock daytime revenue',
     'benefit1.text':
       'Your terrace becomes usable all day — not just in the evening. That means 30–40% more covers from the same space.',
@@ -131,13 +132,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     'how.step4.text': "Seasonal maintenance, nozzle cleaning, and system checks. Warranty included. We're one WhatsApp away.",
 
     // ─── Social proof ───
-    'social.title': 'Venues that switched to MistSystem — and never looked back.',
+    'social.title': 'Venues that switched to Mist System — and never looked back.',
     'social.subtitle':
       'Real results from real businesses across Bali, Jakarta, and beyond.',
     'social.case1.label': 'Restaurant · Bali',
     'social.case1.title': '"Terrace revenue up 35% in the first month."',
     'social.case1.text':
-      'After installing MistSystem, our outdoor seating became the preferred choice — even at noon. Guests actively ask for terrace tables now. The system paid for itself in under 3 months.',
+      'After installing Mist System, our outdoor seating became the preferred choice — even at noon. Guests actively ask for terrace tables now. The system paid for itself in under 3 months.',
     'social.case1.author': 'Michael Tan, Restaurant Owner',
     'social.case2.label': 'Beach Club · Bali',
     'social.case2.title': '"Guests stay 45 minutes longer on average."',
@@ -147,7 +148,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'social.case3.label': 'Hotel · Jakarta',
     'social.case3.title': '"Our rooftop bar went from dead to fully booked."',
     'social.case3.text':
-      "The rooftop was unusable during the day. MistSystem dropped the temperature enough that we now serve lunch up there. It's become our highest-revenue F&B outlet.",
+      "The rooftop was unusable during the day. Mist System dropped the temperature enough that we now serve lunch up there. It's become our highest-revenue F&B outlet.",
     'social.case3.author': "James O'Connor, General Manager",
 
     // ─── Pricing ───
@@ -207,7 +208,7 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // ─── Footer ───
     'footer.copy': "Indonesia's No. 1 outdoor mist cooling system for restaurants, hotels, and beach clubs.",
-    'footer.rights': 'MistSystem. All rights reserved.',
+    'footer.rights': 'Mist System. All rights reserved.',
   },
 
   id: {
@@ -218,18 +219,19 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.cases': 'Hasil Nyata',
     'nav.pricing': 'Solusi',
     'nav.cta': 'Dapatkan Cooling Plan',
+    'nav.ctaShort': 'Dapatkan Plan',
     'nav.home': 'Beranda',
     'nav.contacts': 'Kontak',
 
     // ─── Hero ───
     'hero.eyebrow': 'Sistem Pendingin Outdoor No. 1 di Indonesia',
     'hero.title': 'Teras Anda kehilangan uang setiap siang yang panas.',
-    'hero.titleLine2': 'MistSystem solusinya.',
+    'hero.titleLine2': 'Mist System solusinya.',
     'hero.subtitle':
       'Kabut ultra-halus menurunkan suhu hingga 10°C — seketika. Meja tidak basah. Tanpa kipas berisik. Tamu tetap nyaman, betah lebih lama, dan belanja lebih banyak. Sudah dipercaya 600+ venue di seluruh Indonesia.',
     'hero.ctaPrimary': 'Dapatkan Cooling Plan Saya',
     'hero.ctaSecondary': 'Hitung ROI Saya',
-    'hero.meta1': '600+ venue mempercayai MistSystem',
+    'hero.meta1': '600+ venue mempercayai Mist System',
     'hero.meta2': 'Penurunan suhu hingga 10°C',
     'hero.meta3': '90% lebih hemat energi vs AC',
     'hero.caption': 'Sistem terintegrasi tidak terlihat ke struktur yang ada.',
@@ -248,13 +250,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     'pain.title': 'Saat ini, panas sedang merugikan bisnis Anda.',
     'pain.subtitle':
       'Setiap siang teras Anda kosong, Anda membayar sewa untuk ruang yang tidak menghasilkan apa-apa. Kompetitor Anda yang punya teras sejuk? Mereka penuh.',
-    'pain.badLabel': 'Tanpa MistSystem',
+    'pain.badLabel': 'Tanpa Mist System',
     'pain.badTitle': 'Kehilangan pendapatan, setiap hari',
     'pain.bad1': 'Teras kosong jam 11 pagi–5 sore — tamu menolak duduk di bawah terik.',
     'pain.bad2': 'Walk-in lihat pemandangan, rasakan panas, dan pergi ke venue yang lebih sejuk.',
     'pain.bad3': 'Kipas hanya meniup udara panas dan menambah kebisingan. AC tidak berfungsi di luar.',
     'pain.bad4': 'Anda bayar sewa penuh, staf penuh — tapi hanya dapat pendapatan malam hari.',
-    'pain.goodLabel': 'Dengan MistSystem',
+    'pain.goodLabel': 'Dengan Mist System',
     'pain.goodTitle': 'Teras penuh. Sepanjang hari. Lebih banyak pendapatan.',
     'pain.good1': 'Tamu memilih teras Anda bahkan di puncak panas — 10°C lebih sejuk.',
     'pain.good2': 'Waktu kunjungan lebih lama. Lebih banyak pesanan per meja per hari.',
@@ -262,19 +264,19 @@ export const translations: Record<Locale, Record<string, string>> = {
     'pain.good4': 'Sistem berjalan dengan biaya listrik kurang dari Rp 15.000/hari.',
 
     // ─── Before / After slider ───
-    'beforeAfter.title': 'Beginilah terasa teras Anda — sebelum dan sesudah MistSystem.',
+    'beforeAfter.title': 'Beginilah terasa teras Anda — sebelum dan sesudah Mist System.',
     'beforeAfter.subtitle':
       'Geser untuk membandingkan: teras panas dan kosong vs teras sejuk yang penuh tamu.',
-    'beforeAfter.beforeLabel': 'Sebelum MistSystem',
-    'beforeAfter.afterLabel': 'Dengan MistSystem',
+    'beforeAfter.beforeLabel': 'Sebelum Mist System',
+    'beforeAfter.afterLabel': 'Dengan Mist System',
     'beforeAfter.beforeAlt': 'Teras panas dengan sedikit tamu yang terlihat tidak nyaman.',
-    'beforeAfter.afterAlt': 'Teras sejuk dengan MistSystem, penuh tamu yang menikmati suasana.',
-    'beforeAfter.sliderLabel': 'Geser untuk membandingkan teras Anda sebelum dan sesudah MistSystem.',
+    'beforeAfter.afterAlt': 'Teras sejuk dengan Mist System, penuh tamu yang menikmati suasana.',
+    'beforeAfter.sliderLabel': 'Geser untuk membandingkan teras Anda sebelum dan sesudah Mist System.',
 
     // ─── Manfaat ───
     'benefits.title': 'Bukan sekadar pendingin. Keunggulan bisnis.',
     'benefits.subtitle':
-      'MistSystem adalah satu-satunya teknologi pendingin outdoor yang menggabungkan kenyamanan instan, estetika premium, dan ROI nyata untuk restoran, hotel, dan beach club.',
+      'Mist System adalah satu-satunya teknologi pendingin outdoor yang menggabungkan kenyamanan instan, estetika premium, dan ROI nyata untuk restoran, hotel, dan beach club.',
     'benefit1.title': 'Buka pendapatan siang hari',
     'benefit1.text':
       'Teras Anda bisa digunakan sepanjang hari — bukan hanya malam. Artinya 30–40% lebih banyak tamu dari ruang yang sama.',
@@ -339,12 +341,12 @@ export const translations: Record<Locale, Record<string, string>> = {
     'how.step4.text': 'Perawatan musiman, pembersihan nozel, dan pengecekan sistem. Garansi included. Kami satu WhatsApp away.',
 
     // ─── Bukti Sosial ───
-    'social.title': 'Venue yang beralih ke MistSystem — dan tidak pernah kembali.',
+    'social.title': 'Venue yang beralih ke Mist System — dan tidak pernah kembali.',
     'social.subtitle': 'Hasil nyata dari bisnis nyata di Bali, Jakarta, dan sekitarnya.',
     'social.case1.label': 'Restoran · Bali',
     'social.case1.title': '"Pendapatan teras naik 35% di bulan pertama."',
     'social.case1.text':
-      'Setelah pasang MistSystem, outdoor seating jadi pilihan utama — bahkan saat siang. Tamu secara aktif minta meja teras. Sistem balik modal kurang dari 3 bulan.',
+      'Setelah pasang Mist System, outdoor seating jadi pilihan utama — bahkan saat siang. Tamu secara aktif minta meja teras. Sistem balik modal kurang dari 3 bulan.',
     'social.case1.author': 'Michael Tan, Pemilik Restoran',
     'social.case2.label': 'Beach Club · Bali',
     'social.case2.title': '"Tamu betah rata-rata 45 menit lebih lama."',
@@ -354,7 +356,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'social.case3.label': 'Hotel · Jakarta',
     'social.case3.title': '"Rooftop bar kami berubah dari sepi jadi fully booked."',
     'social.case3.text':
-      'Rooftop tidak bisa dipakai siang hari. MistSystem menurunkan suhu cukup sehingga kami sekarang serve lunch di atas. Sekarang ini outlet F&B kami dengan revenue tertinggi.',
+      'Rooftop tidak bisa dipakai siang hari. Mist System menurunkan suhu cukup sehingga kami sekarang serve lunch di atas. Sekarang ini outlet F&B kami dengan revenue tertinggi.',
     'social.case3.author': "James O'Connor, General Manager",
 
     // ─── Harga ───
@@ -414,6 +416,6 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // ─── Footer ───
     'footer.copy': 'Sistem pendingin kabut outdoor No. 1 Indonesia untuk restoran, hotel, dan beach club.',
-    'footer.rights': 'MistSystem. Hak cipta dilindungi.',
+    'footer.rights': 'Mist System. Hak cipta dilindungi.',
   },
 }

@@ -29,8 +29,9 @@
 }
 
 .lead-contacts p {
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(15, 23, 42, 0.55);
@@ -38,7 +39,8 @@
 }
 
 .lead-contacts a {
-  font-size: 15px;
+  font-family: var(--font-family);
+  font-size: var(--text-body-lg);
   color: rgba(15, 23, 42, 0.8);
   text-decoration: none;
   transition: color 0.2s;
@@ -64,8 +66,9 @@
 
 .lead-field label {
   display: block;
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.04em;
   color: rgba(15, 23, 42, 0.65);
   margin-bottom: 8px;
@@ -76,8 +79,8 @@
 .lead-field textarea {
   width: 100%;
   padding: 12px 16px;
-  font-size: 15px;
-  font-family: inherit;
+  font-family: var(--font-family);
+  font-size: var(--text-body-lg);
   color: #111111;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.12);
@@ -108,15 +111,17 @@
 }
 
 .lead-policy {
-  font-size: 12px;
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
   color: rgba(15, 23, 42, 0.5);
   text-align: center;
   margin-top: -4px;
 }
 
 .lead-status {
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  font-weight: var(--fw-semibold);
   text-align: center;
   padding: 12px;
   border-radius: 12px;

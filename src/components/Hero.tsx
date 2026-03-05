@@ -49,22 +49,9 @@ export function Hero() {
               {t('hero.ctaSecondary')}
             </a>
           </div>
-          <div className="hero-meta">
-            <span>{t('hero.meta1')}</span>
-            <span className="hero-meta-dot" />
-            <span>{t('hero.meta2')}</span>
-            <span className="hero-meta-dot" />
-            <span>{t('hero.meta3')}</span>
-          </div>
-        </div>
-        <div className="hero-visual section-animated">
-          <p className="hero-visual-caption">{t('hero.caption')}</p>
         </div>
       </div>
       <div className="hero-fog-layer" />
-      <div className="hero-scroll-indicator">
-        <div className="hero-scroll-line" />
-      </div>
     </section>
   )
 }

@@ -51,15 +51,17 @@
 }
 
 .benefit-title {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-size: var(--text-subtitle);
+  font-weight: var(--fw-bold);
   margin-bottom: 10px;
   color: #111111;
 }
 
 .benefit-text {
-  font-size: 14px;
-  line-height: 1.7;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  line-height: var(--lh-loose);
   color: rgba(15, 23, 42, 0.7);
 }
 

@@ -15,48 +15,12 @@
   justify-content: center;
 }
 
-.installation-card {
-  width: 100%;
-  max-width: 780px;
-  border-radius: 28px;
-  background: #ffffff;
-  box-shadow:
-    0 20px 55px rgba(15, 23, 42, 0.14),
-    0 0 0 1px rgba(148, 163, 184, 0.16);
-  padding: 22px 22px 26px;
-}
-
-.installation-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .installation-legend {
   margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px 24px;
-  align-items: center;
-}
-
-.installation-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.installation-legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  box-shadow: 0 0 10px rgba(15, 23, 42, 0.12);
 }
 
 .installation-legend-label {
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 
 .installation-copy .section-header {
@@ -76,8 +40,9 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
-  line-height: 1.7;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  line-height: var(--lh-loose);
   color: var(--text-muted);
 }
 
@@ -102,8 +67,8 @@
   }
 
   .installation-card {
-    max-width: 440px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
   }
 }
 

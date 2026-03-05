@@ -1,10 +1,10 @@
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 72vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 80px 0 56px;
   background: radial-gradient(circle at top, #f4f5f9 0%, #f5f5f7 45%, #e9eaef 80%, #f5f5f7 100%);
   --fog-progress: 0;
 }
@@ -23,7 +23,8 @@
   background-image: url('/images/mist-terrace.jpg');
   background-size: cover;
   background-position: center;
-  filter: brightness(0.62) saturate(1.05);
+  /* Показываем исходное фото без общего затемнения */
+  filter: saturate(1.05);
   transform: scaleX(-1);
   transform-origin: center;
 }
@@ -32,15 +33,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to right,
-      rgba(8, 9, 12, 0.68) 0%,
-      rgba(8, 9, 12, 0.55) 22%,
-      rgba(8, 9, 12, 0.38) 40%,
-      rgba(8, 9, 12, 0.18) 60%,
-      rgba(8, 9, 12, 0.04) 100%
-    );
+  background: none;
 }
 
 .hero-gradient-orb {
@@ -105,10 +98,20 @@
   z-index: 3;
 }
 
+@media (min-width: 961px) {
+  .hero-content {
+    padding: 22px 26px 26px;
+    border-radius: 26px;
+    background: radial-gradient(circle at 0% 0%, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.8) 42%, rgba(15, 23, 42, 0.74) 100%);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.6);
+  }
+}
+
 .hero-eyebrow {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #fffbf2;
@@ -120,9 +123,10 @@
 }
 
 .hero-title {
-  font-size: clamp(40px, 5.5vw, 72px);
-  font-weight: 900;
-  line-height: 1.05;
+  font-family: var(--font-family);
+  font-size: var(--text-hero);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-tight);
   letter-spacing: -0.04em;
   margin-bottom: 24px;
   color: #f9fafb;
@@ -136,8 +140,10 @@
 }
 
 .hero-subtitle {
-  font-size: 18px;
-  line-height: 1.7;
+  font-family: var(--font-family);
+  font-size: var(--text-subtitle);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-loose);
   color: rgba(241, 245, 249, 0.9);
   max-width: 520px;
   margin-bottom: 36px;
@@ -151,23 +157,12 @@
 
 .btn-lg {
   padding: 16px 36px;
-  font-size: 16px;
+  font-size: var(--text-lead);
 }
 
-.hero-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  color: rgba(226, 232, 240, 0.9);
-  font-weight: 500;
-}
-
-/* ─── Туманный эффект для текста ─── */
 .hero-section .hero-eyebrow,
 .hero-section .hero-title,
-.hero-section .hero-subtitle,
-.hero-section .hero-meta {
+.hero-section .hero-subtitle {
   opacity: calc(1 - var(--fog-progress) * 0.2);
   transition: opacity 0.22s ease-out;
 }
@@ -289,8 +284,9 @@
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
   padding: 10px 28px;
-  font-size: 14px;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  font-weight: var(--fw-bold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(15, 23, 42, 0.75);
@@ -299,38 +295,16 @@
 
 .hero-visual-caption {
   margin-top: 16px;
-  font-size: 13px;
+  font-size: var(--text-caption);
   color: rgba(15, 23, 42, 0.55);
   text-align: center;
-}
-
-/* ─── Scroll Indicator ─── */
-.hero-scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.hero-scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scroll-line 2s ease-in-out infinite;
-}
-
-@keyframes scroll-line {
-  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
-  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 960px) {
   .hero-layout {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 32px;
     text-align: center;
   }
 
@@ -360,7 +334,7 @@
   }
 
   .hero-title {
-    font-size: clamp(32px, 9vw, 40px);
+    font-size: var(--text-h1);
   }
 
   .hero-device {
@@ -383,18 +357,97 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Мобильная версия: компактный Hero без громоздкости */
+@media (max-width: 768px) {
   .hero-section {
-    padding: 96px 0 60px;
+    min-height: auto;
+    padding: 72px 0 48px;
+  }
+
+  .hero-layout {
+    gap: 0;
+  }
+
+  .hero-content {
+    padding: 18px 16px 22px;
+    border-radius: 20px;
+  }
+
+  .hero-eyebrow {
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    padding: 5px 12px;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: var(--text-h1);
+    margin-bottom: 16px;
+    line-height: var(--lh-snug);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-body-lg);
+    line-height: var(--lh-normal);
+    margin-bottom: 22px;
   }
 
   .hero-cta-row {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-cta-row .btn-lg {
+    padding: 10px 18px;
+    font-size: var(--text-caption);
   }
 
   .hero-meta {
-    flex-wrap: wrap;
-    justify-content: center;
+    font-size: var(--text-xs);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 64px 0 40px;
+  }
+
+  .hero-content {
+    padding: 16px 14px 18px;
+    border-radius: 18px;
+  }
+
+  .hero-eyebrow {
+    font-size: var(--text-xs);
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: var(--text-h1);
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-body);
+    margin-bottom: 18px;
+  }
+
+  .hero-cta-row {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .hero-cta-row .btn-lg {
+    padding: 9px 14px;
+    font-size: var(--text-sm);
+  }
+
+  .hero-meta {
+    font-size: var(--text-xs);
   }
 }

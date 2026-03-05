@@ -54,8 +54,9 @@
 }
 
 .pricing-label {
-  font-size: 12px;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
@@ -63,14 +64,16 @@
 }
 
 .pricing-title {
-  font-size: 24px;
-  font-weight: 800;
+  font-family: var(--font-family);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-extrabold);
   color: #111111;
   margin-bottom: 8px;
 }
 
 .pricing-text {
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
   line-height: 1.6;
   color: rgba(15, 23, 42, 0.65);
   margin-bottom: 24px;
@@ -86,7 +89,8 @@
 }
 
 .pricing-list li {
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: var(--text-body);
   line-height: 1.5;
   color: rgba(15, 23, 42, 0.75);
   padding-left: 24px;
@@ -98,13 +102,14 @@
   position: absolute;
   left: 0;
   color: var(--accent);
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: var(--fw-bold);
+  font-size: var(--text-caption);
 }
 
 .pricing-note {
-  font-size: 22px;
-  font-weight: 800;
+  font-family: var(--font-family);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-extrabold);
   color: #111111;
   margin-bottom: 20px;
   letter-spacing: -0.02em;

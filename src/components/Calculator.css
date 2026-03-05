@@ -4,43 +4,60 @@
 }
 
 .calculator-layout {
-  max-width: 1000px;
+  max-width: 960px;
 }
 
 .calculator-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .calculator-desc {
-  font-size: 17px;
-  line-height: 1.65;
+  font-family: var(--font-family);
+  font-size: var(--text-lead);
+  line-height: var(--lh-relaxed);
   color: rgba(15, 23, 42, 0.65);
   margin-top: 12px;
 }
 
-.calculator-body {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 32px;
-  align-items: start;
+.calculator-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* ─── Inputs ─── */
-.calculator-inputs {
+.calculator-input-card {
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 20px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  padding: 28px 26px 22px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.calculator-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.calc-field-area {
+  min-width: 0;
+}
+
+.calc-field-check {
+  min-width: 0;
 }
 
 .calc-field label {
   display: block;
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: rgba(15, 23, 42, 0.6);
@@ -74,8 +91,9 @@
 }
 
 .calc-value {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-size: var(--text-subtitle);
+  font-weight: var(--fw-bold);
   color: var(--accent);
   min-width: 72px;
   text-align: right;
@@ -84,8 +102,9 @@
 .calc-field input[type='number'] {
   width: 100%;
   padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: var(--text-lead);
+  font-weight: var(--fw-semibold);
   color: #111111;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.12);
@@ -99,80 +118,107 @@
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
+
 /* ─── Infographic ─── */
 .calculator-infographic {
+  display: none;
+}
+
+/* ─── Summary ─── */
+.calculator-summary-card {
+  background: radial-gradient(circle at top left, rgba(244, 199, 142, 0.18), rgba(248, 250, 252, 0.98));
+  border-radius: 28px;
+  padding: 30px 32px 26px;
+  border: 1px solid rgba(248, 250, 252, 0.9);
+  box-shadow:
+    0 22px 60px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(148, 163, 184, 0.18);
+}
+
+.summary-columns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: 1.2fr 1.3fr 1.4fr;
+  gap: 28px;
+  align-items: flex-start;
 }
 
-.infographic-card {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 16px;
-  padding: 24px 20px;
-  transition: border-color 0.3s;
+.summary-column + .summary-column {
+  border-left: 1px solid rgba(148, 163, 184, 0.28);
+  padding-left: 24px;
 }
 
-.infographic-card:hover {
-  border-color: rgba(15, 23, 42, 0.22);
-}
-
-.infographic-label {
-  font-size: 12px;
-  font-weight: 600;
+.summary-label {
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.55);
+  color: rgba(15, 23, 42, 0.6);
   margin-bottom: 8px;
 }
 
-.infographic-value {
-  font-size: 22px;
-  font-weight: 800;
-  color: #111111;
-  letter-spacing: -0.02em;
+.summary-value {
+  font-family: var(--font-family);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-extrabold);
+  color: #0f172a;
+  letter-spacing: -0.03em;
 }
 
-.infographic-model-name {
+.summary-model-name {
   color: var(--accent);
+  font-size: var(--text-h2);
+  text-transform: none;
 }
 
-.infographic-highlight {
-  color: var(--accent);
-}
-
-.infographic-sublabel {
-  font-size: 13px;
-  color: rgba(15, 23, 42, 0.55);
+.summary-sublabel {
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  color: rgba(15, 23, 42, 0.65);
   margin-top: 4px;
 }
 
-.infographic-accent {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, rgba(244, 199, 142, 0.16) 0%, rgba(148, 163, 184, 0.16) 100%);
-  border-color: rgba(244, 199, 142, 0.6);
-}
-
-.infographic-big {
-  font-size: 36px;
-  font-weight: 900;
+.summary-payback {
+  margin-top: 6px;
+  font-family: var(--font-family);
+  font-size: var(--text-display);
+  font-weight: var(--fw-black);
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--accent), #4b5563);
+  background: linear-gradient(135deg, #0f172a, #4b5563);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.infographic-unit {
-  font-size: 18px;
-  font-weight: 600;
+.summary-payback-unit {
+  font-size: var(--text-subtitle);
+  font-weight: var(--fw-semibold);
 }
 
-.infographic-note {
-  font-size: 12px;
-  color: rgba(15, 23, 42, 0.5);
-  margin-top: 8px;
+.summary-profit-main {
+  font-family: var(--font-family);
+  font-size: calc(var(--text-display) + 4px);
+  font-weight: var(--fw-black);
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--accent), #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.summary-profit-note {
+  margin-top: 6px;
+}
+
+.summary-revenue-extra {
+  margin-top: 10px;
+}
+
+.calculator-assumptions {
+  margin-top: 18px;
+  font-family: var(--font-family);
+  font-size: var(--text-caption);
+  color: rgba(15, 23, 42, 0.55);
 }
 
 /* ─── Payback Bar ─── */
@@ -199,15 +245,27 @@
 }
 
 @media (max-width: 768px) {
-  .calculator-body {
+  .calculator-input-row {
     grid-template-columns: 1fr;
   }
 
-  .calculator-infographic {
-    grid-template-columns: 1fr;
+  .calculator-summary-card {
+    padding: 22px 18px 20px;
   }
 
-  .infographic-accent {
-    grid-column: 1;
+  .summary-columns {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .summary-column + .summary-column {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.28);
+    padding-top: 14px;
+  }
+
+  .summary-profit-main {
+    font-size: var(--text-display);
   }
 }

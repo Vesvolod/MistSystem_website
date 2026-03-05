@@ -88,7 +88,8 @@
 }
 
 .product-features li {
-  font-size: 15px;
+  font-family: var(--font-family);
+  font-size: var(--text-body-lg);
   line-height: 1.6;
   color: rgba(15, 23, 42, 0.75);
   padding-left: 28px;
