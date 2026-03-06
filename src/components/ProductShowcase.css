@@ -31,7 +31,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 40%, rgba(244, 199, 142, 0.2) 0%, transparent 52%),
+  background: radial-gradient(circle at 30% 40%, rgba(var(--accent-rgb), 0.2) 0%, transparent 52%),
     radial-gradient(circle at 70% 80%, rgba(148, 163, 184, 0.16) 0%, transparent 52%);
 }
 

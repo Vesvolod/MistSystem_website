@@ -29,14 +29,14 @@
 }
 
 .pricing-card-featured {
-  background: linear-gradient(135deg, rgba(244, 199, 142, 0.14) 0%, rgba(148, 163, 184, 0.12) 100%);
-  border-color: rgba(244, 199, 142, 0.6);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.14) 0%, rgba(148, 163, 184, 0.12) 100%);
+  border-color: rgba(var(--accent-rgb), 0.6);
   transform: scale(1.04);
 }
 
 .pricing-card-featured:hover {
   transform: scale(1.04) translateY(-4px);
-  border-color: rgba(244, 199, 142, 0.8);
+  border-color: rgba(var(--accent-rgb), 0.8);
 }
 
 .pricing-card-featured::before {

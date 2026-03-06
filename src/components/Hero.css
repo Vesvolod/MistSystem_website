@@ -46,7 +46,7 @@
 .hero-orb-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(244, 199, 142, 0.8) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.8) 0%, transparent 70%);
   top: -15%;
   right: -5%;
   animation: orb-float 12s ease-in-out infinite;
@@ -115,8 +115,8 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #fffbf2;
-  background: rgba(244, 199, 142, 0.32);
-  border: 1px solid rgba(244, 199, 142, 0.7);
+  background: rgba(var(--accent-rgb), 0.32);
+  border: 1px solid rgba(var(--accent-rgb), 0.7);
   padding: 6px 16px;
   border-radius: 999px;
   margin-bottom: 24px;
@@ -254,7 +254,7 @@
 .hero-device-ring-2 {
   width: 200px;
   height: 200px;
-  border-color: rgba(244, 199, 142, 0.5);
+  border-color: rgba(var(--accent-rgb), 0.5);
   animation-direction: reverse;
   animation-duration: 30s;
 }

@@ -129,8 +129,8 @@
 
 .lead-status-success {
   color: var(--accent);
-  background: rgba(244, 199, 142, 0.12);
-  border: 1px solid rgba(244, 199, 142, 0.55);
+  background: rgba(var(--accent-rgb), 0.12);
+  border: 1px solid rgba(var(--accent-rgb), 0.55);
 }
 
 .lead-status-error {

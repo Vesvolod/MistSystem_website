@@ -46,17 +46,17 @@
 
 /* «С MistSystem» — синий accent */
 .pain-card-good {
-  background: linear-gradient(135deg, rgba(244, 199, 142, 0.14) 0%, rgba(244, 199, 142, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.14) 0%, rgba(var(--accent-rgb), 0.04) 100%);
 }
 
 .pain-card-good::before {
-  background: linear-gradient(135deg, rgba(244, 199, 142, 0.6), rgba(244, 199, 142, 0.08));
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.6), rgba(var(--accent-rgb), 0.08));
 }
 
 .pain-card-good .pain-label {
   color: var(--accent);
-  background: rgba(244, 199, 142, 0.16);
-  border-color: rgba(244, 199, 142, 0.6);
+  background: rgba(var(--accent-rgb), 0.16);
+  border-color: rgba(var(--accent-rgb), 0.6);
 }
 
 .pain-label {
