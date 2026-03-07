@@ -4,7 +4,7 @@ import { useTranslation } from '../context/LanguageContext'
 export function Pricing() {
   const { t } = useTranslation()
   return (
-    <section id="pricing" className="section section-animated pricing-section">
+    <section id="pricing" className="section pricing-section">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">{t('pricing.title')}</h2>

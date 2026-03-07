@@ -43,7 +43,7 @@ export function LeadForm() {
   }
 
   return (
-    <section id="lead-form" className="section section-animated lead-section">
+    <section id="lead-form" className="section lead-section">
       <div className="container lead-layout">
         <div className="lead-copy">
           <h2 className="section-title">{t('lead.title')}</h2>

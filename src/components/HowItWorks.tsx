@@ -12,7 +12,7 @@ export function HowItWorks() {
   ]
 
   return (
-    <section id="product" className="section section-animated how-section">
+    <section id="product" className="section how-section">
       <div className="container how-layout">
         <div className="how-diagram">
           <div className="how-diagram-inner">
@@ -38,20 +38,13 @@ export function HowItWorks() {
                     <rect x={nx - 5} y="22" width="10" height="6" rx="1" className="how-nozzle-body" />
                     <rect x={nx - 2} y="28" width="4" height="5" rx="0.5" className="how-nozzle-tip" />
                     {/* Лёгкая активная дымка прямо под нозлом — 2–3 частицы */}
-                    <circle cx={nx} cy="35" r="0.6" className="how-spray-hint" style={{ animationDelay: `${ni * 0.3}s` }} />
-                    <circle cx={nx - 0.5} cy="36" r="0.45" className="how-spray-hint" style={{ animationDelay: `${ni * 0.3 + 0.4}s` }} />
-                    <circle cx={nx + 0.4} cy="35.5" r="0.5" className="how-spray-hint" style={{ animationDelay: `${ni * 0.3 + 0.8}s` }} />
-                    {/* Конус тумана — мягкий холодный синий */}
-                    <path
-                      d={`M${nx} 34 L${nx - 32} 108 L${nx + 32} 108 Z`}
-                      className="how-mist-cone"
-                      style={{ animationDelay: `${ni * 0.4}s` }}
-                    />
-                    {/* Мелкие частицы в тумане — мерцание */}
-                    <circle cx={nx - 8} cy="58" r="1.2" className="how-mist-dot" style={{ animationDelay: `${ni * 0.4 + 0.2}s` }} />
-                    <circle cx={nx + 6} cy="72" r="1" className="how-mist-dot" style={{ animationDelay: `${ni * 0.4 + 0.5}s` }} />
-                    <circle cx={nx - 4} cy="85" r="1.2" className="how-mist-dot" style={{ animationDelay: `${ni * 0.4 + 0.8}s` }} />
-                    {/* Мелкие капли — падают от нозла до низа конуса и испаряются */}
+                    <circle cx={nx} cy="35" r="0.6" className="how-spray-hint" />
+                    <circle cx={nx - 0.5} cy="36" r="0.45" className="how-spray-hint" />
+                    <circle cx={nx + 0.4} cy="35.5" r="0.5" className="how-spray-hint" />
+                    <path d={`M${nx} 34 L${nx - 32} 108 L${nx + 32} 108 Z`} className="how-mist-cone" />
+                    <circle cx={nx - 8} cy="58" r="1.2" className="how-mist-dot" />
+                    <circle cx={nx + 6} cy="72" r="1" className="how-mist-dot" />
+                    <circle cx={nx - 4} cy="85" r="1.2" className="how-mist-dot" />
                     <g filter="url(#how-droplet-soft)">
                       {[
                         { x: 0, r: 0.7 },
@@ -61,14 +54,7 @@ export function HowItWorks() {
                         { x: 0.3, r: 0.55 },
                         { x: -0.4, r: 0.5 },
                       ].map((d, i) => (
-                        <circle
-                          key={i}
-                          cx={nx + d.x}
-                          cy="36"
-                          r={d.r}
-                          className="how-droplet-fall"
-                          style={{ animationDelay: `${ni * 0.5 + i * 0.35}s` }}
-                        />
+                        <circle key={i} cx={nx + d.x} cy="36" r={d.r} className="how-droplet-fall" />
                       ))}
                     </g>
                   </g>

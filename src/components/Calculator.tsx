@@ -30,9 +30,12 @@ const SEAT_DENSITY = 0.2 // посадочных мест на м² (консе�
 const HEAT_LOSS_FACTOR = 0.28 // доля потерь использования в жаркие часы
 const RECOVERY_FACTOR = 0.55 // доля восстановления за счёт туманообразования
 const GROSS_MARGIN = 0.28 // валовая маржа на доп. выручку
-const MAINTENANCE_IDR_PER_MONTH = 75_000 // резерв на обслуживание в месяц
+const MAINTENANCE_IDR_PER_MONTH = 75_000
 
-/** Доп. сложность установки только для крупных объектов (трубы, маршрутизация). */
+function fmtIdr(value: number) {
+  return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(value)
+}
+
 function installationUplift(area: number): number {
   if (area >= 300) return 0.1
   if (area >= 150) return 0.05
@@ -87,15 +90,8 @@ export function Calculator() {
     }
   }, [area, avgCheck])
 
-  const fmt = (value: number) =>
-    new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      maximumFractionDigits: 0,
-    }).format(value)
-
   return (
-    <section id="calculator" className="section section-animated calculator-section">
+    <section id="calculator" className="section calculator-section">
       <div className="container calculator-layout">
         <header className="calculator-header">
           <h2 className="section-title">{t('calculator.title')}</h2>
@@ -161,23 +157,23 @@ export function Calculator() {
             <div className="results-metrics">
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.systemCost')}</span>
-                <span className="results-metric-value">{fmt(result.model.price)}</span>
+                <span className="results-metric-value">{fmtIdr(result.model.price)}</span>
               </div>
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.revenueDay')}</span>
-                <span className="results-metric-value">{fmt(result.revenuePerDay)}</span>
+                <span className="results-metric-value">{fmtIdr(result.revenuePerDay)}</span>
                 <span className="results-metric-note">
                   {t('calculator.infographic.extraGuests').replace('{n}', String(result.extraGuests))}
                 </span>
               </div>
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.monthlyNet')}</span>
-                <span className="results-metric-value results-metric-net">{fmt(result.monthlyNetBenefit)}</span>
+                <span className="results-metric-value results-metric-net">{fmtIdr(result.monthlyNetBenefit)}</span>
                 <span className="results-metric-note">{t('calculator.infographic.monthlyNetNote')}</span>
               </div>
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.electricityDay')}</span>
-                <span className="results-metric-value">{fmt(result.electricityPerDay)}</span>
+                <span className="results-metric-value">{fmtIdr(result.electricityPerDay)}</span>
                 <span className="results-metric-note">
                   {result.model.powerW}W · {HOURS_PER_DAY}h/day
                 </span>

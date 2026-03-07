@@ -7,7 +7,7 @@ export function InstallationMap() {
   const steps = [t('install.s1'), t('install.s2'), t('install.s3')]
 
   return (
-    <section id="installation" className="section section-animated installation-section">
+    <section id="installation" className="section installation-section">
       <div className="container installation-layout">
         <div className="installation-copy">
           <div className="section-header">

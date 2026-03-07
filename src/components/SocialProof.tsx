@@ -37,7 +37,7 @@ const CASES = [
 export function SocialProof() {
   const { t } = useTranslation()
   return (
-    <section id="cases" className="section section-animated social-section">
+    <section id="cases" className="section social-section">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">{t('social.title')}</h2>

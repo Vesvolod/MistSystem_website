@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section id="hero" className="hero-section">
       <div className="container hero-layout">
-        <div className="hero-content section-animated">
+        <div className="hero-content">
           <p className="hero-eyebrow">{t('hero.eyebrow')}</p>
 
           <h1 className="hero-title">
@@ -35,7 +35,7 @@ export function Hero() {
           </div>
         </div>
 
-        <figure className="hero-image-card section-animated">
+        <figure className="hero-image-card">
           <picture>
             <source
               srcSet="/images/hero_mobile.jpg"

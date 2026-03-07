@@ -4,7 +4,7 @@ import { useTranslation } from '../context/LanguageContext'
 export function PainSolution() {
   const { t } = useTranslation()
   return (
-    <section id="problems" className="section section-animated pain-section">
+    <section id="problems" className="section pain-section">
       <div className="container">
         <div className="section-header">
           <p className="pain-eyebrow">{t('pain.eyebrow')}</p>

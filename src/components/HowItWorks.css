@@ -59,188 +59,46 @@
   overflow: visible;
 }
 
-/* Чтобы transform-анимации в SVG работали стабильно */
-.how-diagram-svg .how-mist-cone,
-.how-diagram-svg .how-mist-dot,
-.how-diagram-svg .how-droplet-fall,
-.how-diagram-svg .how-spray-hint {
-  transform-box: fill-box;
-}
-
-/* Труба — нейтральный серый */
 .how-pipe {
   fill: rgba(100, 116, 139, 0.45);
   stroke: rgba(71, 85, 105, 0.25);
   stroke-width: 0.5;
 }
 
-/* Нозлы — тёплый акцент, очень мягкий пульс «включено», без мигания */
 .how-nozzle-body {
   fill: rgba(199, 138, 18, 0.75);
   stroke: rgba(180, 120, 10, 0.35);
   stroke-width: 0.6;
-  animation: how-nozzle-pulse 4s ease-in-out infinite;
 }
 
 .how-nozzle-tip {
   fill: rgba(199, 138, 18, 0.6);
   stroke: none;
-  animation: how-nozzle-pulse 4s ease-in-out infinite 0.2s;
 }
 
-/* Лёгкая дымка прямо под нозлом — намёк на активное распыление */
 .how-spray-hint {
   fill: rgba(158, 195, 228, 0.5);
-  animation: how-spray-hint 3.5s ease-in-out infinite;
 }
 
-/* Конус тумана — холодный синий, чуть контрастнее */
 .how-mist-cone {
   fill: rgba(158, 195, 228, 0.3);
   stroke: none;
-  transform-origin: 50% 0;
-  animation: how-mist-drift 4.5s ease-in-out infinite;
 }
 
-/* Мелкие частицы в тумане */
 .how-mist-dot {
   fill: rgba(158, 195, 228, 0.48);
-  animation: how-mist-dot 5.5s ease-in-out infinite;
 }
 
-/* Мелкие капли — падают до низа конуса и испаряются */
 .how-droplet-fall {
   fill: rgba(158, 195, 228, 0.56);
-  transform-origin: center;
-  animation: how-droplet-fall 2.8s ease-in infinite;
 }
 
-/* Подпись «Cooling zone» — читаемая аннотация */
 .how-cooling-zone-label {
   font-family: var(--font-family);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.04em;
   fill: rgba(15, 23, 42, 0.55);
-  animation: how-label-pulse 6s ease-in-out infinite;
-}
-
-/* Обёртка зоны охлаждения — очень мягкое «дыхание» opacity */
-.how-cooling-zone-wrap {
-  animation: how-cooling-breathe 6s ease-in-out infinite;
-}
-
-@keyframes how-nozzle-pulse {
-  0%, 100% { opacity: 0.97; }
-  50% { opacity: 1; }
-}
-
-@keyframes how-spray-hint {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.5; }
-}
-
-@keyframes how-mist-drift {
-  0%, 100% {
-    opacity: 0.52;
-    transform: scaleY(1);
-  }
-  50% {
-    opacity: 0.92;
-    transform: scaleY(1.032);
-  }
-}
-
-@keyframes how-mist-dot {
-  0%, 100% {
-    opacity: 0.3;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.58;
-    transform: translateY(6px);
-  }
-}
-
-@keyframes how-label-pulse {
-  0%, 100% { opacity: 0.92; }
-  50% { opacity: 1; }
-}
-
-/* Мелкие капли: падают от нозла до низа конуса, к низу испаряются */
-@keyframes how-droplet-fall {
-  0% {
-    opacity: 0.75;
-    transform: translateY(0) scale(1);
-  }
-  70% {
-    opacity: 0.3;
-    transform: translateY(50px) scale(0.8);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(72px) scale(0.35);
-  }
-}
-
-@keyframes how-cooling-breathe {
-  0%, 100% { opacity: 0.94; }
-  50% { opacity: 1; }
-}
-
-@keyframes how-fade-up {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.how-node {
-  position: absolute;
-  cursor: pointer;
-  border: none;
-  background: none;
-  padding: 0;
-  text-align: center;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.how-node-card {
-  width: 96px;
-  height: 96px;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.015);
-  border: 1.5px solid rgba(0, 0, 0, 0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-}
-
-.how-node-label {
-  margin-top: 8px;
-  font-family: var(--font-family);
-  font-size: var(--text-xs);
-  font-weight: var(--fw-bold);
-  color: #8a929c;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  max-width: 96px;
-}
-
-.how-node-active {
-  transform: scale(1.08);
-  z-index: 2;
-}
-
-.how-node-active .how-node-card {
-  background: rgba(212, 148, 76, 0.06);
-  border-color: rgba(212, 148, 76, 0.25);
-  box-shadow: 0 8px 30px rgba(212, 148, 76, 0.14);
-}
-
-.how-node-active .how-node-label {
-  color: #d4944c;
 }
 
 .how-copy {
@@ -299,127 +157,6 @@
   box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.12);
 }
 
-.how-steps-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.how-step-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 14px 18px;
-  border-radius: 14px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  text-align: left;
-}
-
-.how-step-row-active {
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
-}
-
-.how-step-index {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.04);
-  color: #aab0b8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-family);
-  font-size: var(--text-caption);
-  font-weight: var(--fw-bold);
-  flex-shrink: 0;
-  transition: all 0.35s ease;
-}
-
-.how-step-row-active .how-step-index {
-  background: #d4944c;
-  color: #ffffff;
-}
-
-.how-step-main {
-  flex: 1;
-}
-
-.how-step-main-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-
-.how-step-title {
-  font-family: var(--font-family);
-  font-size: var(--text-body-lg);
-  font-weight: var(--fw-bold);
-  color: #8a929c;
-  transition: color 0.3s;
-}
-
-.how-step-row-active .how-step-title {
-  color: #111827;
-}
-
-.how-step-stat {
-  font-family: var(--font-family);
-  font-size: var(--text-h3);
-  font-weight: var(--fw-black);
-  color: transparent;
-  background: linear-gradient(135deg, #d4944c, #e8b870);
-  -webkit-background-clip: text;
-  background-clip: text;
-  opacity: 0;
-  transform: translateY(4px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
-
-.how-step-row-active .how-step-stat {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.how-step-desc {
-  font-family: var(--font-family);
-  font-size: var(--text-caption);
-  line-height: 1.6;
-  color: #6b7280;
-  margin: 0;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition:
-    max-height 0.4s ease,
-    opacity 0.3s ease;
-}
-
-.how-step-row-active .how-step-desc {
-  max-height: 80px;
-  opacity: 1;
-}
-
-.how-progress {
-  margin-top: 24px;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 1px;
-  overflow: hidden;
-}
-
-.how-progress-fill {
-  height: 100%;
-  border-radius: 1px;
-  background: linear-gradient(90deg, #d4944c, #e8b870);
-  transition: width 0.5s ease;
-}
-
 @media (max-width: 960px) {
   .how-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -444,36 +181,5 @@
 
   .how-diagram-inner {
     min-height: 240px;
-  }
-
-  .how-mist-cone,
-  .how-mist-dot {
-    animation-duration: 7s;
-  }
-
-  .how-droplet-fall {
-    animation-duration: 3.5s;
-  }
-
-  .how-nozzle-body,
-  .how-nozzle-tip {
-    animation-duration: 5s;
-  }
-
-  .how-cooling-zone-wrap {
-    animation-duration: 8s;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .how-mist-cone,
-  .how-mist-dot,
-  .how-droplet-fall,
-  .how-spray-hint,
-  .how-nozzle-body,
-  .how-nozzle-tip,
-  .how-cooling-zone-wrap,
-  .how-cooling-zone-label {
-    animation: none;
   }
 }
