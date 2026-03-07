@@ -147,6 +147,7 @@ export function Calculator() {
                 {result.paybackMonths != null && result.paybackMonths < 120 && (
                   <span className="results-payback-unit"> {t('calculator.paybackMonths')}</span>
                 )}
+                <span className="results-payback-hint"> (indicative)</span>
               </span>
                 <span className="results-payback-line" aria-hidden="true" />
               </div>
@@ -165,7 +166,7 @@ export function Calculator() {
             <div className="results-metrics">
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.systemCost')}</span>
-                <span className="results-metric-value">{fmtIdr(result.model.price, true)}</span>
+                <span className="results-metric-value">≈ {fmtIdr(result.model.price, true)}</span>
               </div>
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.revenueDay')}</span>

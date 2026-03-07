@@ -77,6 +77,10 @@ export function HowItWorks() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <div className="how-dry-block">
+            <h3 className="how-dry-title">{t('product.dryTitle')}</h3>
+            <p className="how-dry-text">{t('product.dryText')}</p>
+          </div>
         </div>
       </div>
     </section>

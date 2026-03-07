@@ -157,6 +157,27 @@
   box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.12);
 }
 
+.how-dry-block {
+  margin-top: 28px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.how-dry-title {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+}
+
+.how-dry-text {
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
 @media (max-width: 960px) {
   .how-layout {
     grid-template-columns: minmax(0, 1fr);

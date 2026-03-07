@@ -6,9 +6,9 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.benefits': 'Why Mist System',
     'nav.product': 'Technology',
     'nav.calculator': 'ROI Calculator',
-    'nav.cases': 'Results',
+    'nav.cases': 'Use cases',
     'nav.pricing': 'Solutions',
-    'nav.cta': 'Get Free Cooling Plan',
+    'nav.cta': 'Get Cooling Plan',
     'nav.ctaShort': 'Get Plan',
     'nav.home': 'Home',
     'nav.contacts': 'Contact',
@@ -19,12 +19,12 @@ export const translations: Record<Locale, Record<string, string>> = {
     'hero.titleLine2': '',
     'hero.subtitle':
       'Fine mist cools your terrace without wet tables or bulky fans. Lower cost than open-space AC. For restaurants, cafes, villas, hotels, and beach clubs in Indonesia.',
-    'hero.ctaPrimary': 'Get Free Cooling Plan',
-    'hero.ctaSecondary': 'Get Price List',
+    'hero.ctaPrimary': 'Get My Cooling Plan',
+    'hero.ctaSecondary': 'See Solutions',
     'hero.ctaWhatsApp': 'Talk to Manager',
-    'hero.meta1': '600+ venues trust Mist System',
-    'hero.meta2': 'Up to 10°C temperature drop',
-    'hero.meta3': '90% lower energy vs traditional AC',
+    'hero.meta1': 'Cooling in the air',
+    'hero.meta2': 'Lower cost than open-space AC',
+    'hero.meta3': 'Hospitality venues across Indonesia',
     'hero.caption':
       'System integrates invisibly into your existing structure.',
 
@@ -109,6 +109,9 @@ export const translations: Record<Locale, Record<string, string>> = {
     'product.f4': 'Zoning and timers. Run only the zones and hours you need.',
     'product.f5': 'Commercial-grade materials. Stainless and brass for Indonesia’s humidity and salt.',
 
+    'product.dryTitle': 'Why surfaces stay dry',
+    'product.dryText': 'High-pressure nozzles create ultra-fine droplets (10–20 µm) that evaporate in the air before reaching tables or guests. Cooling happens in the seating zone; no wet surfaces, no puddles.',
+
     // ─── Installation Map (layout integration) ───
     'install.title': 'Designed around your venue.',
     'install.subtitle':
@@ -143,24 +146,34 @@ export const translations: Record<Locale, Record<string, string>> = {
     'calculator.assumptionNote': 'Conservative assumptions built in. Final numbers depend on layout, exposure, installation scope, and operating assumptions.',
     'calculator.ctaAfter': 'Get my cooling plan and pricing',
     'calculator.disclaimerLong':
-      'Indicative only. Final quote and payback depend on site survey, layout, and your operating conditions.',
+      'Indicative only. Final quote and payback depend on your layout and operating conditions.',
 
     // ─── Trust / Proof ───
-    'trust.title': 'Trusted by hospitality across Indonesia',
-    'trust.subtitle': 'Restaurants, hotels, and venues that rely on Mist System.',
+    'trust.title': 'Built for real hospitality venues',
+    'trust.subtitle': 'We design and install mist cooling for restaurants, hotels, beach clubs, and outdoor venues across Indonesia.',
+    'trust.card1.title': 'Venue-specific design',
+    'trust.card1.text': 'Layout and sizing tailored to your space, wind, and operating hours.',
+    'trust.card2.title': 'Clean integration',
+    'trust.card2.text': 'Slim lines and discreet nozzles. Pump and filter in back-of-house.',
+    'trust.card3.title': 'Support when you need it',
+    'trust.card3.text': 'Installation, handover, and ongoing maintenance. One team, one point of contact.',
+    'trust.coverage': 'Service areas across Indonesia.',
+    'trust.designedFor': 'Designed for hospitality venues in Indonesia.',
 
-    // ─── How it works ───
-    'how.title': 'From first call to cool terrace — in days, not months.',
+    // ─── Process ───
+    'how.title': 'How we work with you',
     'how.subtitle':
-      'One team handles everything: survey, design, install, and support. No subcontractors. No surprises.',
-    'how.step1.title': 'Free site survey',
-    'how.step1.text': 'We visit your venue, measure the space, assess wind and sun exposure, and understand your peak hours.',
-    'how.step2.title': 'Custom system design',
-    'how.step2.text': 'Our engineers design the nozzle layout, pump capacity, and piping route. You approve the plan before anything starts.',
-    'how.step3.title': 'Professional installation',
-    'how.step3.text': 'We install around your schedule — no need to close. Most venues are up and running within 1–2 days.',
-    'how.step4.title': 'Ongoing support',
-    'how.step4.text': "Seasonal maintenance, nozzle cleaning, and system checks. Warranty included. We're one WhatsApp away.",
+      'Simple, professional steps. From your venue details to a recommended system and installation.',
+    'how.step1.title': 'Share venue size or photos',
+    'how.step1.text': 'Send terrace area, venue type, and any layout details. We use this to tailor the recommendation.',
+    'how.step2.title': 'Receive system recommendation',
+    'how.step2.text': 'We send a recommended system size, layout approach, and where equipment fits.',
+    'how.step3.title': 'Review indicative investment',
+    'how.step3.text': 'You get an indicative budget range. Final quote follows confirmed scope.',
+    'how.step4.title': 'Confirm installation direction',
+    'how.step4.text': 'You approve the approach. We schedule installation around your operations.',
+    'how.step5.title': 'Proceed to setup and support',
+    'how.step5.text': 'Installation and handover. Ongoing support and maintenance as needed.',
 
     // ─── Social proof ───
     'social.title': 'How we deploy in hospitality.',
@@ -191,19 +204,19 @@ export const translations: Record<Locale, Record<string, string>> = {
     'social.case3.s3k': 'Outcome',
     'social.case3.s3v': 'More serviceable hours for the rooftop (climate-dependent)',
     'social.disclaimer':
-      'Illustrative. Final design and results depend on site survey, layout, wind, humidity, and operating hours.',
+      'Illustrative. Final design and results depend on your layout, wind, humidity, and operating hours.',
 
     // ─── Pricing ───
     'pricing.title': 'System sizing by outdoor area.',
     'pricing.subtitle':
-      'Starting points by coverage. We confirm scope and price after a free site survey and layout design. Sizing and recommendation tailored to your venue.',
+      'Starting points by coverage. We confirm scope and price after reviewing your venue details and layout. Sizing tailored to your space.',
     'pricing.card1.label': 'Compact',
     'pricing.card1.title': '10–65 m²',
     'pricing.card1.text': 'Cafés, small terraces, villa pool decks. Perimeter line and compact pump; professional installation included.',
     'pricing.card1.li1': 'MistPro 100',
     'pricing.card1.li2': 'Nozzle spacing 60–80 cm',
     'pricing.card1.li3': 'From IDR 12.9M*',
-    'pricing.card1.note': '*Final price after site survey and layout.',
+    'pricing.card1.note': '*Final price after we confirm your layout.',
     'pricing.card1.cta': 'Get recommendation',
     'pricing.card2.label': 'Modular',
     'pricing.card2.title': '50–300 m²',
@@ -211,22 +224,22 @@ export const translations: Record<Locale, Record<string, string>> = {
     'pricing.card2.li1': 'MistPro 300–400',
     'pricing.card2.li2': 'Zoning for efficiency',
     'pricing.card2.li3': 'From IDR 17.9M*',
-    'pricing.card2.note': '*Final price after site survey and layout.',
-    'pricing.card2.cta': 'Get site survey',
+    'pricing.card2.note': '*Final price after we confirm your layout.',
+    'pricing.card2.cta': 'Get recommendation',
     'pricing.card3.label': 'High capacity',
     'pricing.card3.title': '200–600 m²',
     'pricing.card3.text': 'Large terraces, resorts, event spaces. Multi-zone control; pump and piping sized to your area.',
     'pricing.card3.li1': 'MistPro 600–700',
     'pricing.card3.li2': 'Multi-zone for large layouts',
     'pricing.card3.li3': 'From IDR 22.9M*',
-    'pricing.card3.note': '*Final price after site survey and layout.',
+    'pricing.card3.note': '*Final price after we confirm your layout.',
     'pricing.card3.cta': 'Get engineered sizing',
-    'pricing.disclaimer': 'Final pricing depends on coverage, nozzle count, piping route, pump, controls, and installation access. We quote after survey.',
+    'pricing.disclaimer': 'Final pricing depends on coverage, nozzle count, piping route, pump, controls, and installation access. We quote after reviewing your venue details.',
 
     // ─── Lead form ───
-    'lead.title': 'Get your free cooling plan and pricing.',
+    'lead.title': 'Get your cooling plan and indicative pricing.',
     'lead.subtitle':
-      'Share your venue details. We’ll send a system recommendation, indicative budget, and a cooling plan. No obligation. Reply within 1 business day.',
+      'Share your venue details. We’ll send a system recommendation, indicative budget, and layout approach. We usually respond the same day via WhatsApp.',
     'lead.contactLabel': 'Prefer to talk first?',
     'lead.contactNote': "WhatsApp us with your terrace size and venue type. We'll guide you from there.",
     'lead.whatsappCta': 'Chat on WhatsApp',
@@ -250,14 +263,14 @@ export const translations: Record<Locale, Record<string, string>> = {
     'lead.commentPlaceholder': 'Terrace size, number of seats, anything useful…',
     'lead.submit': 'Get My Cooling Plan',
     'lead.submitting': 'Sending…',
-    'lead.policy': 'We reply within 1 business day. No spam.',
+    'lead.policy': 'We usually respond the same day during business hours. No spam.',
     'lead.success': 'WhatsApp opened with your details. If it did not open, use the WhatsApp button above.',
     'lead.error': 'Please enter your name and WhatsApp number.',
 
     // ─── Final CTA ───
-    'finalCta.title': 'Ready to cool your outdoor space?',
-    'finalCta.subtitle': 'Get a system recommendation and indicative budget. No obligation.',
-    'finalCta.cta': 'Get Free Cooling Plan',
+    'finalCta.title': 'Ready for a serious cooling solution?',
+    'finalCta.subtitle': 'Get a system recommendation and indicative investment range. For venue owners and operators.',
+    'finalCta.cta': 'Get My Cooling Plan',
 
     // ─── WhatsApp ───
     'whatsapp.cta': 'Chat on WhatsApp',
@@ -271,7 +284,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'footer.navCalculator': 'ROI Calculator',
     'footer.navContact': 'Contact',
     'footer.contactWhatsApp': 'Chat on WhatsApp',
-    'footer.contactPlan': 'Get Free Cooling Plan',
+    'footer.contactPlan': 'Get Cooling Plan',
     'footer.copyrightPrefix': '© Mist System',
     'footer.rights': 'All rights reserved.',
   },
@@ -281,7 +294,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.benefits': 'Keunggulan',
     'nav.product': 'Teknologi',
     'nav.calculator': 'Kalkulator ROI',
-    'nav.cases': 'Hasil Nyata',
+    'nav.cases': 'Contoh penggunaan',
     'nav.pricing': 'Solusi',
     'nav.cta': 'Dapatkan Cooling Plan Gratis',
     'nav.ctaShort': 'Dapatkan Plan',
@@ -382,6 +395,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     'product.f3': 'Tekanan dan filtrasi stabil. Performa konsisten, penyumbatan lebih sedikit.',
     'product.f4': 'Zoning dan timer. Hanya zona dan jam yang Anda butuhkan.',
     'product.f5': 'Material tingkat komersial. Stainless dan kuningan untuk kelembapan dan garam Indonesia.',
+    'product.dryTitle': 'Mengapa permukaan tetap kering',
+    'product.dryText': 'Nozel tekanan tinggi membuat droplet ultra-halus (10–20 µm) yang menguap di udara sebelum mencapai meja atau tamu. Pendinginan terjadi di zona duduk; tanpa permukaan basah, tanpa genangan.',
 
     // ─── Peta Instalasi (integrasi layout) ───
     'install.title': 'Dirancang sesuai venue Anda.',
@@ -417,24 +432,34 @@ export const translations: Record<Locale, Record<string, string>> = {
     'calculator.assumptionNote': 'Asumsi konservatif sudah dimasukkan. Angka final tergantung layout, paparan, scope instalasi, dan asumsi operasional.',
     'calculator.ctaAfter': 'Dapatkan cooling plan dan harga untuk saya',
     'calculator.disclaimerLong':
-      'Indikatif saja. Penawaran dan payback final tergantung survei lokasi, layout, dan kondisi operasi Anda.',
+      'Indikatif saja. Penawaran dan payback final tergantung layout dan kondisi operasi Anda.',
 
     // ─── Trust / Proof ───
-    'trust.title': 'Dipercaya oleh hospitality di Indonesia',
-    'trust.subtitle': 'Restoran, hotel, dan venue yang memakai Mist System.',
+    'trust.title': 'Dibuat untuk venue hospitality nyata',
+    'trust.subtitle': 'Kami desain dan pasang pendingin kabut untuk restoran, hotel, beach club, dan venue outdoor di Indonesia.',
+    'trust.card1.title': 'Desain sesuai venue',
+    'trust.card1.text': 'Layout dan sizing disesuaikan ruang, angin, dan jam operasi Anda.',
+    'trust.card2.title': 'Integrasi rapi',
+    'trust.card2.text': 'Pipa ramping dan nozel diskret. Pompa dan filter di back-of-house.',
+    'trust.card3.title': 'Dukungan saat Anda butuh',
+    'trust.card3.text': 'Instalasi, serah terima, dan perawatan berkelanjutan. Satu tim, satu kontak.',
+    'trust.coverage': 'Area layanan di seluruh Indonesia.',
+    'trust.designedFor': 'Dirancang untuk venue hospitality di Indonesia.',
 
-    // ─── Cara Kerja ───
-    'how.title': 'Dari telepon pertama ke teras sejuk — dalam hitungan hari.',
+    // ─── Proses ───
+    'how.title': 'Cara kami bekerja dengan Anda',
     'how.subtitle':
-      'Satu tim menangani semua: survei, desain, instalasi, dan dukungan. Tanpa subkontraktor. Tanpa kejutan.',
-    'how.step1.title': 'Survei lokasi gratis',
-    'how.step1.text': 'Kami kunjungi venue Anda, ukur ruang, cek paparan angin dan matahari, dan pahami jam sibuk Anda.',
-    'how.step2.title': 'Desain sistem kustom',
-    'how.step2.text': 'Engineer kami desain layout nozel, kapasitas pompa, dan jalur pipa. Anda approve rencana sebelum apapun dimulai.',
-    'how.step3.title': 'Instalasi profesional',
-    'how.step3.text': 'Kami pasang sesuai jadwal Anda — tidak perlu tutup. Kebanyakan venue beroperasi dalam 1–2 hari.',
-    'how.step4.title': 'Dukungan berkelanjutan',
-    'how.step4.text': 'Perawatan musiman, pembersihan nozel, dan pengecekan sistem. Garansi included. Kami satu WhatsApp away.',
+      'Langkah sederhana dan profesional. Dari detail venue ke rekomendasi sistem dan instalasi.',
+    'how.step1.title': 'Bagikan ukuran atau foto venue',
+    'how.step1.text': 'Kirim luas teras, tipe venue, dan detail layout. Kami gunakan untuk rekomendasi yang sesuai.',
+    'how.step2.title': 'Terima rekomendasi sistem',
+    'how.step2.text': 'Kami kirim ukuran sistem yang disarankan, pendekatan layout, dan penempatan perangkat.',
+    'how.step3.title': 'Tinjau investasi indikatif',
+    'how.step3.text': 'Anda dapat rentang budget indikatif. Penawaran final mengikuti scope yang dikonfirmasi.',
+    'how.step4.title': 'Konfirmasi arah instalasi',
+    'how.step4.text': 'Anda setuju pendekatan. Kami jadwalkan instalasi sesuai operasional Anda.',
+    'how.step5.title': 'Setup dan dukungan',
+    'how.step5.text': 'Instalasi dan serah terima. Dukungan dan perawatan berkelanjutan sesuai kebutuhan.',
 
     // ─── Bukti Sosial ───
     'social.title': 'Cara kami pasang di hospitality.',
@@ -465,19 +490,19 @@ export const translations: Record<Locale, Record<string, string>> = {
     'social.case3.s3k': 'Outcome',
     'social.case3.s3v': 'Jam layanan rooftop lebih banyak (tergantung iklim)',
     'social.disclaimer':
-      'Ilustratif. Desain dan hasil final tergantung survei lokasi, layout, angin, kelembapan, dan jam operasi.',
+      'Ilustratif. Desain dan hasil final tergantung layout, angin, kelembapan, dan jam operasi Anda.',
 
     // ─── Harga ───
     'pricing.title': 'Sizing sistem berdasarkan luas outdoor.',
     'pricing.subtitle':
-      'Titik awal berdasarkan cakupan. Scope dan harga kami konfirmasi setelah survei lokasi dan desain layout gratis. Sizing dan rekomendasi disesuaikan venue Anda.',
+      'Titik awal berdasarkan cakupan. Scope dan harga kami konfirmasi setelah meninjau detail venue dan layout Anda. Sizing disesuaikan ruang Anda.',
     'pricing.card1.label': 'Kompak',
     'pricing.card1.title': '10–65 m²',
     'pricing.card1.text': 'Kafe, teras kecil, area kolam/villa. Pipa perimeter dan pompa kompak; instalasi profesional included.',
     'pricing.card1.li1': 'MistPro 100',
     'pricing.card1.li2': 'Jarak nozel 60–80 cm',
     'pricing.card1.li3': 'Mulai Rp 12,9 juta*',
-    'pricing.card1.note': '*Harga final setelah survei dan layout.',
+    'pricing.card1.note': '*Harga final setelah kami konfirmasi layout Anda.',
     'pricing.card1.cta': 'Dapatkan rekomendasi',
     'pricing.card2.label': 'Modular',
     'pricing.card2.title': '50–300 m²',
@@ -485,22 +510,22 @@ export const translations: Record<Locale, Record<string, string>> = {
     'pricing.card2.li1': 'MistPro 300–400',
     'pricing.card2.li2': 'Zoning untuk efisiensi',
     'pricing.card2.li3': 'Mulai Rp 17,9 juta*',
-    'pricing.card2.note': '*Harga final setelah survei dan layout.',
-    'pricing.card2.cta': 'Minta survei lokasi',
+    'pricing.card2.note': '*Harga final setelah kami konfirmasi layout Anda.',
+    'pricing.card2.cta': 'Dapatkan rekomendasi',
     'pricing.card3.label': 'Kapasitas tinggi',
     'pricing.card3.title': '200–600 m²',
     'pricing.card3.text': 'Teras besar, resort, event space. Kontrol multi-zona; pompa dan pipa disesuaikan luas Anda.',
     'pricing.card3.li1': 'MistPro 600–700',
     'pricing.card3.li2': 'Multi-zona untuk layout besar',
     'pricing.card3.li3': 'Mulai Rp 22,9 juta*',
-    'pricing.card3.note': '*Harga final setelah survei dan layout.',
+    'pricing.card3.note': '*Harga final setelah kami konfirmasi layout Anda.',
     'pricing.card3.cta': 'Minta sizing engineer',
-    'pricing.disclaimer': 'Harga final tergantung coverage, jumlah nozel, jalur pipa, pompa, kontrol, dan akses instalasi. Kami beri penawaran setelah survei.',
+    'pricing.disclaimer': 'Harga final tergantung coverage, jumlah nozel, jalur pipa, pompa, kontrol, dan akses instalasi. Kami beri penawaran setelah meninjau detail venue.',
 
     // ─── Form ───
-    'lead.title': 'Dapatkan cooling plan dan daftar harga gratis.',
+    'lead.title': 'Dapatkan cooling plan dan harga indikatif.',
     'lead.subtitle':
-      'Beritahu detail venue Anda. Kami kirim rekomendasi sistem, budget indikatif, dan cooling plan. Tanpa kewajiban. Respon dalam 1 hari kerja.',
+      'Beritahu detail venue Anda. Kami kirim rekomendasi sistem, budget indikatif, dan cooling plan. Tanpa kewajiban. Biasanya kami respons hari yang sama via WhatsApp.',
     'lead.contactLabel': 'Lebih suka bicara dulu?',
     'lead.contactNote': 'WhatsApp kami dengan ukuran teras dan tipe venue. Kami pandu dari sana.',
     'lead.whatsappCta': 'Chat via WhatsApp',
@@ -524,14 +549,14 @@ export const translations: Record<Locale, Record<string, string>> = {
     'lead.commentPlaceholder': 'Ukuran teras, jumlah kursi, info berguna lainnya…',
     'lead.submit': 'Dapatkan Cooling Plan Saya',
     'lead.submitting': 'Mengirim…',
-    'lead.policy': 'Kami respons dalam 1 hari kerja. Tanpa spam.',
+    'lead.policy': 'Biasanya kami respons hari yang sama (jam kerja). Tanpa spam.',
     'lead.success': 'WhatsApp terbuka dengan detail Anda. Jika tidak terbuka, gunakan tombol WhatsApp di atas.',
     'lead.error': 'Mohon isi nama dan nomor WhatsApp.',
 
     // ─── Final CTA ───
-    'finalCta.title': 'Siap mendinginkan area outdoor Anda?',
-    'finalCta.subtitle': 'Dapatkan rekomendasi sistem dan budget indikatif. Tanpa kewajiban.',
-    'finalCta.cta': 'Dapatkan Cooling Plan Gratis',
+    'finalCta.title': 'Siap untuk solusi pendingin yang serius?',
+    'finalCta.subtitle': 'Dapatkan rekomendasi sistem dan rentang investasi indikatif. Untuk pemilik dan operator venue.',
+    'finalCta.cta': 'Dapatkan Cooling Plan Saya',
 
     // ─── WhatsApp ───
     'whatsapp.cta': 'Chat via WhatsApp',
@@ -545,7 +570,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'footer.navCalculator': 'Kalkulator ROI',
     'footer.navContact': 'Kontak',
     'footer.contactWhatsApp': 'Chat via WhatsApp',
-    'footer.contactPlan': 'Dapatkan Cooling Plan Gratis',
+    'footer.contactPlan': 'Dapatkan Cooling Plan',
     'footer.copyrightPrefix': '© Mist System',
     'footer.rights': 'Hak cipta dilindungi.',
   },

@@ -6,6 +6,7 @@ const STEPS = [
   { key: 'step2', num: '2' },
   { key: 'step3', num: '3' },
   { key: 'step4', num: '4' },
+  { key: 'step5', num: '5' },
 ] as const
 
 export function Process() {

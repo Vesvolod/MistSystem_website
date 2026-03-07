@@ -207,6 +207,12 @@
   color: rgba(17, 24, 39, 0.6);
 }
 
+.results-payback-hint {
+  font-size: var(--text-caption);
+  font-weight: var(--fw-normal);
+  color: rgba(17, 24, 39, 0.5);
+}
+
 .results-payback-line {
   display: block;
   margin-top: 6px;
