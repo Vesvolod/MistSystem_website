@@ -1,20 +1,20 @@
 import './Comparison.css'
 import { useTranslation } from '../context/LanguageContext'
 
-const ROWS = [
-  { key: 'cooling', suffix: 'Cooling', labelKey: 'comparison.cooling' },
-  { key: 'tablesDry', suffix: 'Dry', labelKey: 'comparison.tablesDry' },
-  { key: 'visual', suffix: 'Visual', labelKey: 'comparison.visual' },
-  { key: 'premiumFit', suffix: 'Fit', labelKey: 'comparison.premiumFit' },
-  { key: 'energy', suffix: 'Energy', labelKey: 'comparison.energy' },
-  { key: 'outdoor', suffix: 'Outdoor', labelKey: 'comparison.outdoor' },
+const CRITERIA = [
+  { key: 'cooling', suffix: 'Cooling', icon: '❄️' },
+  { key: 'tablesDry', suffix: 'Dry', icon: '💧' },
+  { key: 'visual', suffix: 'Visual', icon: '👁' },
+  { key: 'premiumFit', suffix: 'Fit', icon: '✦' },
+  { key: 'energy', suffix: 'Energy', icon: '⚡' },
+  { key: 'outdoor', suffix: 'Outdoor', icon: '☀️' },
 ] as const
 
-const COLS = [
-  { id: 'highPressure', labelKey: 'comparison.highPressure', highlight: true },
-  { id: 'fans', labelKey: 'comparison.fans', highlight: false },
-  { id: 'lowPressure', labelKey: 'comparison.lowPressure', highlight: false },
-  { id: 'ac', labelKey: 'comparison.ac', highlight: false },
+const SYSTEMS = [
+  { id: 'highPressure', highlight: true },
+  { id: 'fans', highlight: false },
+  { id: 'lowPressure', highlight: false },
+  { id: 'ac', highlight: false },
 ] as const
 
 export function Comparison() {
@@ -28,31 +28,58 @@ export function Comparison() {
           <p className="section-subtitle">{t('comparison.subtitle')}</p>
         </div>
 
-        <div className="comparison-wrap">
+        {/* Десктоп: таблица */}
+        <div className="comparison-desktop">
           <div className="comparison-table" role="region" aria-label="Comparison of cooling options">
             <div className="comparison-thead">
               <div className="comparison-th comparison-th-empty" aria-hidden="true" />
-              {COLS.map((col) => (
+              {SYSTEMS.map((sys) => (
                 <div
-                  key={col.id}
-                  className={`comparison-th ${col.highlight ? 'comparison-th-highlight' : ''}`}
+                  key={sys.id}
+                  className={`comparison-th ${sys.highlight ? 'comparison-th-ours' : ''}`}
                 >
-                  {t(col.labelKey)}
+                  {sys.highlight && <span className="comparison-badge">{t('comparison.ourPick')}</span>}
+                  <span className="comparison-th-text">{t(`comparison.${sys.id}`)}</span>
                 </div>
               ))}
             </div>
-            {ROWS.map((row) => (
+            {CRITERIA.map((row) => (
               <div key={row.key} className="comparison-tr">
-                <div className="comparison-td comparison-td-label">{t(row.labelKey)}</div>
-                <div className="comparison-td comparison-td-yes">
-                  {t(`comparison.${COLS[0].id}${row.suffix}`)}
-                </div>
-                <div className="comparison-td">{t(`comparison.${COLS[1].id}${row.suffix}`)}</div>
-                <div className="comparison-td">{t(`comparison.${COLS[2].id}${row.suffix}`)}</div>
-                <div className="comparison-td">{t(`comparison.${COLS[3].id}${row.suffix}`)}</div>
+                <div className="comparison-td comparison-td-label">{t(`comparison.${row.key}`)}</div>
+                {SYSTEMS.map((sys) => (
+                  <div
+                    key={sys.id}
+                    className={`comparison-td ${sys.highlight ? 'comparison-td-ours' : ''}`}
+                  >
+                    {t(`comparison.${sys.id}${row.suffix}`)}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Мобильный: карточки */}
+        <div className="comparison-mobile">
+          {SYSTEMS.map((sys) => (
+            <div
+              key={sys.id}
+              className={`comparison-card ${sys.highlight ? 'comparison-card-ours' : ''}`}
+            >
+              <h3 className="comparison-card-title">
+                {sys.highlight && <span className="comparison-card-badge">{t('comparison.ourPick')}</span>}
+                {t(`comparison.${sys.id}`)}
+              </h3>
+              <dl className="comparison-card-list">
+                {CRITERIA.map((row) => (
+                  <div key={row.key} className="comparison-card-row">
+                    <dt>{t(`comparison.${row.key}`)}</dt>
+                    <dd>{t(`comparison.${sys.id}${row.suffix}`)}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -154,7 +154,23 @@
   }
 
   .hero-proof {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
     text-align: center;
+  }
+
+  .hero-proof-item {
+    padding: var(--space-3);
+    background: var(--bg-muted);
+    border-radius: var(--radius-md);
+    border-right: none;
+  }
+
+  .hero-proof-label {
+    font-size: 10px;
+  }
+
+  .hero-proof-main {
+    font-size: var(--text-xs);
   }
 }

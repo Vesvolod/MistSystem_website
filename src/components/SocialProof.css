@@ -1,134 +1,119 @@
-/* Заголовок и подзаголовок секции — слева, в одну линию с сеткой карточек */
-.social-section .section-header {
-  max-width: 720px;
-  margin-bottom: 26px;
-  text-align: left;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.social-section .section-title {
-  font-family: var(--font-display);
-  font-size: clamp(26px, 3.2vw, 32px);
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -0.018em;
-  color: #1c1c1c;
-  margin-bottom: 12px;
-}
-
-.social-section .section-subtitle {
-  font-size: 18px;
-  line-height: 1.68;
-  color: rgba(17, 24, 39, 0.82);
-  font-weight: 400;
-  margin: 0;
-  max-width: 600px;
-}
-
-.social-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.social-card {
-  position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8) var(--space-6);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.social-section {
+  background: var(--bg-page);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
 }
 
-.social-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
+.social-section.section {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
 }
 
-/* Бейдж категории — тот же overline/label, что и в Benefits */
-.social-label {
-  display: block;
-  font-family: var(--font-family);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.5);
-  margin-bottom: 6px;
-  line-height: 1.2;
-}
-
-/* Заголовок карточки — тот же уровень, что benefit-title */
-.social-title {
+.social-stat {
   font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.28;
-  letter-spacing: -0.018em;
-  color: #1c1c1c;
-  margin-bottom: 10px;
-}
-
-.social-spec {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.social-spec-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4px;
-  padding: 12px 12px 10px;
-  border-radius: 16px;
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  background: rgba(15, 23, 42, 0.015);
-}
-
-/* Внутренние лейблы (INSTALLATION, OPERATING GOAL и т.д.) — единый micro-label */
-.social-spec-row dt {
-  font-family: var(--font-family);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.5);
-  line-height: 1.2;
-  margin: 0;
-}
-
-.social-spec-row dd {
-  margin: 0;
-  font-family: var(--font-family);
-  font-size: 15px;
-  line-height: 1.68;
-  color: rgba(17, 24, 39, 0.82);
-}
-
-.social-disclaimer {
-  margin-top: 18px;
-  font-family: var(--font-family);
-  font-size: var(--text-caption);
-  color: rgba(15, 23, 42, 0.62);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
   text-align: center;
-  line-height: 1.55;
+  margin-bottom: var(--space-10);
 }
 
-@media (max-width: 960px) {
-  .social-grid {
-    grid-template-columns: 1fr;
-    max-width: 520px;
-    margin: 0 auto;
+.social-marquee-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.social-marquee {
+  display: flex;
+  gap: var(--space-6);
+  white-space: nowrap;
+  animation: marquee-scroll 45s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+
+.social-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@media (max-width: 480px) {
-  .social-section .section-header {
-    margin-bottom: 28px;
+.social-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 14px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  min-height: 72px;
+  min-width: 140px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.social-logo-item:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-logo-item img {
+  max-width: 120px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.5) opacity(0.7);
+  transition: filter 0.3s ease;
+}
+
+.social-logo-item:hover img {
+  filter: grayscale(0) opacity(1);
+}
+
+.social-caption {
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  color: rgba(15, 23, 42, 0.45);
+  text-align: center;
+  margin-top: var(--space-8);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .social-section.section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .social-stat {
+    margin-bottom: var(--space-8);
+  }
+
+  .social-marquee {
+    animation-duration: 35s;
+    gap: var(--space-4);
+  }
+
+  .social-logo-item {
+    padding: 10px 18px;
+    min-height: 60px;
+    min-width: 120px;
+  }
+
+  .social-logo-item img {
+    max-width: 100px;
+    max-height: 40px;
   }
 }
