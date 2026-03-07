@@ -1,57 +1,54 @@
+import { useState } from 'react'
 import './App.css'
 import { useTranslation } from './context/LanguageContext'
 import { Hero } from './components/Hero'
 import { PainSolution } from './components/PainSolution'
-import { BeforeAfter } from './components/BeforeAfter'
-import { Benefits } from './components/Benefits'
 import { HowItWorks } from './components/HowItWorks'
 import { InstallationMap } from './components/InstallationMap'
+import { BeforeAfter } from './components/BeforeAfter'
+import { TrustProof } from './components/TrustProof'
 import { Calculator } from './components/Calculator'
 import { SocialProof } from './components/SocialProof'
 import { Pricing } from './components/Pricing'
+import { Process } from './components/Process'
 import { LeadForm } from './components/LeadForm'
+import { FinalCTA } from './components/FinalCTA'
 import { WhatsAppButton } from './components/WhatsAppButton'
 import { buildWhatsAppLink } from './config/contact'
 
 function App() {
   const { t, locale, setLocale } = useTranslation()
+  const [navOpen, setNavOpen] = useState(false)
   const currentYear = new Date().getFullYear()
   const copyrightYear = currentYear === 2024 ? '2024' : `2024–${currentYear}`
+
+  const closeNav = () => setNavOpen(false)
 
   return (
     <div className="page-root">
       <header className="page-header">
         <div className="container header-inner">
-          <a className="header-logo" href="#hero" aria-label="Mist System">
+          <a className="header-logo" href="#hero" aria-label="Mist System" onClick={closeNav}>
             Mist System
           </a>
-          <nav className="header-nav">
-            <a href="#benefits">{t('nav.benefits')}</a>
-            <a href="#product">{t('nav.product')}</a>
-            <a href="#calculator">{t('nav.calculator')}</a>
-            <a href="#cases">{t('nav.cases')}</a>
-            <a href="#pricing">{t('nav.pricing')}</a>
+          <button type="button" className="header-burger" aria-expanded={navOpen} aria-controls="header-nav" onClick={() => setNavOpen((o) => !o)} aria-label="Menu">
+            <span className="header-burger-bar" />
+            <span className="header-burger-bar" />
+            <span className="header-burger-bar" />
+          </button>
+          <nav id="header-nav" className={`header-nav ${navOpen ? 'header-nav-open' : ''}`}>
+            <a href="#product" onClick={closeNav}>{t('nav.product')}</a>
+            <a href="#calculator" onClick={closeNav}>{t('nav.calculator')}</a>
+            <a href="#cases" onClick={closeNav}>{t('nav.cases')}</a>
+            <a href="#pricing" onClick={closeNav}>{t('nav.pricing')}</a>
           </nav>
 
           <div className="header-actions">
             <div className="lang-switcher" role="group" aria-label="Language">
-              <button
-                type="button"
-                className={locale === 'en' ? 'lang-btn active' : 'lang-btn'}
-                onClick={() => setLocale('en')}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                className={locale === 'id' ? 'lang-btn active' : 'lang-btn'}
-                onClick={() => setLocale('id')}
-              >
-                ID
-              </button>
+              <button type="button" className={locale === 'en' ? 'lang-btn active' : 'lang-btn'} onClick={() => setLocale('en')}>EN</button>
+              <button type="button" className={locale === 'id' ? 'lang-btn active' : 'lang-btn'} onClick={() => setLocale('id')}>ID</button>
             </div>
-
-            <a href="#lead-form" className="btn btn-primary header-cta" aria-label={t('nav.cta')}>
+            <a href="#lead-form" className="btn btn-primary header-cta" onClick={closeNav} aria-label={t('nav.cta')}>
               <span className="header-cta-long">{t('nav.cta')}</span>
               <span className="header-cta-short">{t('nav.ctaShort')}</span>
             </a>
@@ -62,14 +59,16 @@ function App() {
       <main>
         <Hero />
         <PainSolution />
-        <BeforeAfter />
-        <Benefits />
         <HowItWorks />
         <InstallationMap />
+        <BeforeAfter />
+        <TrustProof />
         <Calculator />
         <SocialProof />
         <Pricing />
+        <Process />
         <LeadForm />
+        <FinalCTA />
       </main>
 
       <footer className="page-footer">
@@ -82,7 +81,7 @@ function App() {
             <div className="footer-link-group">
               <p className="footer-group-title">{t('footer.navTitle')}</p>
               <nav className="footer-nav">
-                <a href="#benefits">{t('footer.navWhy')}</a>
+                <a href="#trust">{t('footer.navWhy')}</a>
                 <a href="#product">{t('footer.navTech')}</a>
                 <a href="#calculator">{t('footer.navCalculator')}</a>
                 <a href="#lead-form">{t('footer.navContact')}</a>

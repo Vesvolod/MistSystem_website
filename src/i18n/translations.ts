@@ -18,7 +18,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'hero.title': 'Heat is costing you outdoor revenue.',
     'hero.titleLine2': '',
     'hero.subtitle':
-      'Keep outdoor seating sellable in peak heat. Fine mist cools guests without wet tables, bulky fans, or expensive open-space AC. Low operating cost. Built for restaurants, cafes, villas, hotels, and beach clubs in Indonesia.',
+      'Fine mist cools your terrace without wet tables or bulky fans. Lower cost than open-space AC. For restaurants, cafes, villas, hotels, and beach clubs in Indonesia.',
     'hero.ctaPrimary': 'Get Free Cooling Plan',
     'hero.ctaSecondary': 'Get Price List',
     'hero.ctaWhatsApp': 'Talk to Manager',
@@ -28,16 +28,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     'hero.caption':
       'System integrates invisibly into your existing structure.',
 
-    // ─── Hero benefit strip ───
-    'heroBenefits.1.labelPrefix': 'UP TO',
-    'heroBenefits.1.labelSuffix': 'COOLER',
+    // ─── Hero benefit strip (3 items) ───
+    'heroBenefits.1.label': 'UP TO 10°C COOLER',
     'heroBenefits.1.main': 'Cooling effect where it matters',
     'heroBenefits.2.label': 'LOW OPERATING COST',
     'heroBenefits.2.main': 'Far lower than open-space AC',
-    'heroBenefits.3.label': 'SELLABLE OUTDOOR SEATING',
-    'heroBenefits.3.main': 'Use your terrace through midday',
-    'heroBenefits.4.label': 'INDONESIA-READY',
-    'heroBenefits.4.main': 'Designed for heat and humidity',
+    'heroBenefits.3.label': 'INDONESIA-READY',
+    'heroBenefits.3.main': 'Designed for heat and humidity',
 
     // ─── Stats bar ───
     'stats.venues': '10–20 µm',
@@ -105,7 +102,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     // ─── Product / Technology (cooling mechanism) ───
     'product.title': 'Why high-pressure mist works — and why cheap options don’t.',
     'product.subtitle':
-      'Fine mist at 10–20 μm evaporates in the air before it reaches surfaces. You get cooling where guests sit, without wet tables or puddles. Lower operating cost than open-space AC; cleaner and quieter than bulky fans.',
+      'Fine mist at 10–20 μm evaporates in the air before it reaches surfaces. Cooling where guests sit; tables stay dry.',
     'product.f1': 'High-pressure fine mist: droplets evaporate in the air, cooling without soaking.',
     'product.f2': 'Discreet nozzles and slim piping. No visual clutter in premium outdoor spaces.',
     'product.f3': 'Stable pressure and filtration. Consistent performance, fewer blockages.',
@@ -147,6 +144,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     'calculator.ctaAfter': 'Get my cooling plan and pricing',
     'calculator.disclaimerLong':
       'Indicative only. Final quote and payback depend on site survey, layout, and your operating conditions.',
+
+    // ─── Trust / Proof ───
+    'trust.title': 'Trusted by hospitality across Indonesia',
+    'trust.subtitle': 'Restaurants, hotels, and venues that rely on Mist System.',
 
     // ─── How it works ───
     'how.title': 'From first call to cool terrace — in days, not months.',
@@ -253,6 +254,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     'lead.success': 'WhatsApp opened with your details. If it did not open, use the WhatsApp button above.',
     'lead.error': 'Please enter your name and WhatsApp number.',
 
+    // ─── Final CTA ───
+    'finalCta.title': 'Ready to cool your outdoor space?',
+    'finalCta.subtitle': 'Get a system recommendation and indicative budget. No obligation.',
+    'finalCta.cta': 'Get Free Cooling Plan',
+
     // ─── WhatsApp ───
     'whatsapp.cta': 'Chat on WhatsApp',
 
@@ -296,16 +302,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     'hero.meta3': '90% lebih hemat energi vs AC',
     'hero.caption': 'Sistem terintegrasi tidak terlihat ke struktur yang ada.',
 
-    // ─── Hero benefit strip ───
-    'heroBenefits.1.labelPrefix': 'HINGGA',
-    'heroBenefits.1.labelSuffix': 'LEBIH SEJUK',
+    // ─── Hero benefit strip (3 items) ───
+    'heroBenefits.1.label': 'HINGGA 10°C LEBIH SEJUK',
     'heroBenefits.1.main': 'Efek pendinginan di area yang tepat',
     'heroBenefits.2.label': 'BIAYA OPERASI RENDAH',
     'heroBenefits.2.main': 'Jauh lebih rendah daripada AC area terbuka',
-    'heroBenefits.3.label': 'AREA DUDUK OUTDOOR LAKU',
-    'heroBenefits.3.main': 'Teras tetap dipakai hingga tengah hari',
-    'heroBenefits.4.label': 'SIAP UNTUK INDONESIA',
-    'heroBenefits.4.main': 'Dirancang untuk panas dan kelembapan',
+    'heroBenefits.3.label': 'SIAP UNTUK INDONESIA',
+    'heroBenefits.3.main': 'Dirancang untuk panas dan kelembapan',
 
     // ─── Stats bar ───
     'stats.venues': '10–20 µm',
@@ -416,6 +419,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     'calculator.disclaimerLong':
       'Indikatif saja. Penawaran dan payback final tergantung survei lokasi, layout, dan kondisi operasi Anda.',
 
+    // ─── Trust / Proof ───
+    'trust.title': 'Dipercaya oleh hospitality di Indonesia',
+    'trust.subtitle': 'Restoran, hotel, dan venue yang memakai Mist System.',
+
     // ─── Cara Kerja ───
     'how.title': 'Dari telepon pertama ke teras sejuk — dalam hitungan hari.',
     'how.subtitle':
@@ -520,6 +527,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     'lead.policy': 'Kami respons dalam 1 hari kerja. Tanpa spam.',
     'lead.success': 'WhatsApp terbuka dengan detail Anda. Jika tidak terbuka, gunakan tombol WhatsApp di atas.',
     'lead.error': 'Mohon isi nama dan nomor WhatsApp.',
+
+    // ─── Final CTA ───
+    'finalCta.title': 'Siap mendinginkan area outdoor Anda?',
+    'finalCta.subtitle': 'Dapatkan rekomendasi sistem dan budget indikatif. Tanpa kewajiban.',
+    'finalCta.cta': 'Dapatkan Cooling Plan Gratis',
 
     // ─── WhatsApp ───
     'whatsapp.cta': 'Chat via WhatsApp',

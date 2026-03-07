@@ -1,7 +1,5 @@
 import './Hero.css'
 import { useTranslation } from '../context/LanguageContext'
-import { buildWhatsAppLink } from '../config/contact'
-
 export function Hero() {
   const { t } = useTranslation()
 
@@ -24,14 +22,6 @@ export function Hero() {
             <a href="#pricing" className="btn btn-secondary btn-lg">
               {t('hero.ctaSecondary')}
             </a>
-            <a
-              href={buildWhatsAppLink(t('lead.whatsappPrefill'))}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary btn-lg hero-cta-whatsapp"
-            >
-              {t('hero.ctaWhatsApp')}
-            </a>
           </div>
         </div>
 
@@ -51,14 +41,8 @@ export function Hero() {
 
       <div className="container hero-bottom" aria-label="Key benefits">
         <div className="hero-bottom-item hero-bottom-item-primary">
-          <p className="hero-bottom-label">
-            {t('heroBenefits.1.labelPrefix')}{' '}
-            <span className="hero-bottom-label-accent">10°C</span>{' '}
-            {t('heroBenefits.1.labelSuffix')}
-          </p>
-          <p className="hero-bottom-main hero-bottom-main-primary">
-            {t('heroBenefits.1.main')}
-          </p>
+          <p className="hero-bottom-label">{t('heroBenefits.1.label')}</p>
+          <p className="hero-bottom-main hero-bottom-main-primary">{t('heroBenefits.1.main')}</p>
         </div>
         <div className="hero-bottom-item">
           <p className="hero-bottom-label">{t('heroBenefits.2.label')}</p>
@@ -66,13 +50,7 @@ export function Hero() {
         </div>
         <div className="hero-bottom-item">
           <p className="hero-bottom-label">{t('heroBenefits.3.label')}</p>
-          <p className="hero-bottom-main hero-bottom-main-soft">
-            {t('heroBenefits.3.main')}
-          </p>
-        </div>
-        <div className="hero-bottom-item">
-          <p className="hero-bottom-label">{t('heroBenefits.4.label')}</p>
-          <p className="hero-bottom-main">{t('heroBenefits.4.main')}</p>
+          <p className="hero-bottom-main hero-bottom-main-soft">{t('heroBenefits.3.main')}</p>
         </div>
       </div>
     </section>

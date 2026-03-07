@@ -79,7 +79,7 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #f8fafc 0%, #f3f6fb 100%);
+  background: #f6f8fa;
   color: var(--text-primary);
   font-size: var(--text-body);
   overflow-x: hidden;

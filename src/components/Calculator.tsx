@@ -32,8 +32,18 @@ const RECOVERY_FACTOR = 0.55 // доля восстановления за сч�
 const GROSS_MARGIN = 0.28 // валовая маржа на доп. выручку
 const MAINTENANCE_IDR_PER_MONTH = 75_000
 
-function fmtIdr(value: number) {
-  return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(value)
+function fmtIdr(value: number, roundToMillions = false) {
+  const v = roundToMillions && value >= 1e6 ? Math.round(value / 1e6) * 1e6 : value
+  return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(v)
+}
+
+function roundPayback(months: number | null): string {
+  if (months == null || months >= 120) return '—'
+  if (months <= 3) return '1–3'
+  if (months <= 6) return '3–6'
+  if (months <= 12) return '6–12'
+  if (months <= 24) return '12–24'
+  return '24+'
 }
 
 function installationUplift(area: number): number {
@@ -132,14 +142,12 @@ export function Calculator() {
             <div className="results-primary">
               <div className="results-payback">
                 <span className="results-payback-label">{t('calculator.infographic.payback')}</span>
-                {result.paybackMonths != null && result.paybackMonths < 120 ? (
-                  <span className="results-payback-value">
-                    ~{result.paybackMonths}{' '}
-                    <span className="results-payback-unit">{t('calculator.paybackMonths')}</span>
-                  </span>
-                ) : (
-                  <span className="results-payback-value">—</span>
+                <span className="results-payback-value">
+                {roundPayback(result.paybackMonths)}
+                {result.paybackMonths != null && result.paybackMonths < 120 && (
+                  <span className="results-payback-unit"> {t('calculator.paybackMonths')}</span>
                 )}
+              </span>
                 <span className="results-payback-line" aria-hidden="true" />
               </div>
               <div className="results-system">
@@ -157,7 +165,7 @@ export function Calculator() {
             <div className="results-metrics">
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.systemCost')}</span>
-                <span className="results-metric-value">{fmtIdr(result.model.price)}</span>
+                <span className="results-metric-value">{fmtIdr(result.model.price, true)}</span>
               </div>
               <div className="results-metric">
                 <span className="results-metric-label">{t('calculator.infographic.revenueDay')}</span>
