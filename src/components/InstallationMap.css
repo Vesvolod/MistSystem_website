@@ -2,10 +2,16 @@
   background: var(--bg-light);
 }
 
+.installation-section.section {
+  padding-top: 64px;
+  padding-bottom: 68px;
+}
+
+/* Текст слева, диаграмма справа — обратный порядок относительно первой технической секции */
 .installation-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 72px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 52px;
   align-items: center;
 }
 
@@ -15,16 +21,47 @@
   justify-content: center;
 }
 
-.installation-legend {
-  margin-top: 18px;
+/* Карточка диаграммы — премиум, в одном ритме с первой секцией */
+.inst-root {
+  width: 100%;
+  max-width: 640px;
 }
 
-.installation-legend-label {
-  font-weight: var(--fw-medium);
+.inst-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 24px 24px 26px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* Левая колонка — тот же типографический ритм, что и в product */
+.installation-copy {
+  max-width: 440px;
 }
 
 .installation-copy .section-header {
-  margin-bottom: 24px;
+  margin-bottom: 0;
+}
+
+.installation-copy .section-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #1c1c1c;
+  margin-bottom: 10px;
+}
+
+.installation-copy .section-subtitle {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(17, 24, 39, 0.82);
+  margin-bottom: 20px;
+  max-width: 38em;
+  font-weight: var(--fw-normal);
 }
 
 .installation-steps {
@@ -33,26 +70,28 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .installation-step {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  position: relative;
+  padding-left: 22px;
   font-family: var(--font-family);
-  font-size: var(--text-body);
-  line-height: var(--lh-loose);
-  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.58;
+  color: rgba(17, 24, 39, 0.88);
+  max-width: 38em;
 }
 
 .installation-step-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  margin-top: 7px;
-  background: radial-gradient(circle, #fbbf77 0%, #e89c4c 45%, rgba(249, 250, 251, 0.1) 80%);
-  box-shadow: 0 0 0 4px rgba(248, 204, 148, 0.25);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.12);
   flex-shrink: 0;
 }
 
@@ -63,12 +102,19 @@
 @media (max-width: 960px) {
   .installation-layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
+    gap: 44px;
   }
 
-  .installation-card {
+  .installation-copy {
     max-width: none;
-    margin: 0;
+  }
+
+  .inst-root {
+    max-width: none;
+  }
+
+  .inst-card {
+    padding: 22px 20px 24px;
   }
 }
 

@@ -1,56 +1,82 @@
+/* Единый модуль калькулятора: один контейнер, общий ритм отступов */
 .calculator-section {
   background: var(--bg-light);
   position: relative;
 }
 
 .calculator-layout {
-  max-width: 960px;
+  max-width: 1040px;
 }
 
 .calculator-header {
   text-align: center;
-  margin-bottom: 48px;
-  max-width: 640px;
+  margin-bottom: 28px;
+  max-width: 560px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.calculator-desc {
-  font-family: var(--font-family);
-  font-size: var(--text-lead);
-  line-height: var(--lh-relaxed);
-  color: rgba(15, 23, 42, 0.65);
-  margin-top: 12px;
+.calculator-header .section-title {
+  margin-bottom: 10px;
 }
 
-.calculator-stack {
+.calculator-desc {
+  font-family: var(--font-family);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-relaxed);
+  color: rgba(17, 24, 39, 0.72);
+  margin-top: 0;
+}
+
+/* Один модуль: общая оболочка, без двух карточек */
+.calculator-module {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: 0;
+  align-items: stretch;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* Левая колонка: вертикальный поток — площадь террасы, затем средний чек */
+.calculator-inputs {
+  padding: 24px 24px 22px 28px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  border-right: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.4);
 }
 
-/* ─── Inputs ─── */
-.calculator-input-card {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 20px;
-  padding: 28px 26px 22px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+/* Доверительная подпись под инпутами; прижимается вниз для равномерного заполнения колонки */
+.calculator-helper-trust {
+  margin-top: auto;
+  padding-top: 4px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(17, 24, 39, 0.55);
 }
 
-.calculator-input-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: center;
-}
-
+/* Первый шаг: площадь террасы — главный контроль */
 .calc-field-area {
   min-width: 0;
 }
 
+.calc-field-area .calc-field-row {
+  gap: 22px;
+}
+
+/* Второй шаг: средний чек — вторичный инпут */
 .calc-field-check {
   min-width: 0;
+}
+
+.calc-field-check label {
+  margin-bottom: 8px;
 }
 
 .calc-field label {
@@ -58,45 +84,55 @@
   font-family: var(--font-family);
   font-size: var(--text-caption);
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.6);
-  margin-bottom: 12px;
+  color: rgba(17, 24, 39, 0.62);
+  margin-bottom: 10px;
 }
 
 .calc-field-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
+/* Слайдер площади: широкая дорожка, заметный ползунок, премиальный минимализм */
 .calc-field input[type='range'] {
   flex: 1;
+  min-width: 0;
   -webkit-appearance: none;
-  height: 4px;
+  height: 8px;
   border-radius: 4px;
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.14);
   outline: none;
 }
 
 .calc-field input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: var(--accent);
   cursor: pointer;
-  box-shadow: 0 0 16px var(--accent-glow);
-  border: 2px solid rgba(17, 24, 39, 0.3);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  transition: box-shadow 0.2s;
+}
+
+.calc-field input[type='range']:hover::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px rgba(var(--accent-rgb), 0.22);
 }
 
 .calc-value {
   font-family: var(--font-family);
-  font-size: var(--text-subtitle);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.35rem;
   font-weight: var(--fw-bold);
-  color: var(--accent);
-  min-width: 72px;
+  color: var(--text-primary);
+  min-width: 78px;
   text-align: right;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .calc-field input[type='number'] {
@@ -105,167 +141,223 @@
   font-family: var(--font-family);
   font-size: var(--text-lead);
   font-weight: var(--fw-semibold);
-  color: #111111;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   outline: none;
   transition: border-color 0.2s;
+  min-height: 48px;
 }
 
 .calc-field input[type='number']:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow: var(--focus-ring);
 }
 
 
-/* ─── Infographic ─── */
-.calculator-infographic {
-  display: none;
+/* Правая колонка: результаты */
+.calculator-results {
+  padding: 28px 32px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(17, 24, 39, 0.015);
 }
 
-/* ─── Summary ─── */
-.calculator-summary-card {
-  background: radial-gradient(circle at top left, rgba(var(--accent-rgb), 0.18), rgba(248, 250, 252, 0.98));
-  border-radius: 28px;
-  padding: 30px 32px 26px;
-  border: 1px solid rgba(248, 250, 252, 0.9);
-  box-shadow:
-    0 22px 60px rgba(15, 23, 42, 0.18),
-    0 0 0 1px rgba(148, 163, 184, 0.18);
-}
-
-.summary-columns {
-  display: grid;
-  grid-template-columns: 1.2fr 1.3fr 1.4fr;
-  gap: 28px;
+/* Главный вывод: окупаемость + рекомендуемая система */
+.results-primary {
+  display: flex;
   align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.summary-column + .summary-column {
-  border-left: 1px solid rgba(148, 163, 184, 0.28);
-  padding-left: 24px;
+.results-payback {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 
-.summary-label {
+.results-payback-label {
   font-family: var(--font-family);
-  font-size: var(--text-sm);
+  font-size: 11px;
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.6);
-  margin-bottom: 8px;
+  color: rgba(17, 24, 39, 0.55);
 }
 
-.summary-value {
+.results-payback-value {
   font-family: var(--font-family);
-  font-size: var(--text-h2);
-  font-weight: var(--fw-extrabold);
-  color: #0f172a;
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: var(--fw-bold);
   letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.15;
 }
 
-.summary-model-name {
-  color: var(--accent);
-  font-size: var(--text-h2);
-  text-transform: none;
+.results-payback-unit {
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+  color: rgba(17, 24, 39, 0.6);
 }
 
-.summary-sublabel {
-  font-family: var(--font-family);
-  font-size: var(--text-caption);
-  color: rgba(15, 23, 42, 0.65);
-  margin-top: 4px;
-}
-
-.summary-payback {
+.results-payback-line {
+  display: block;
   margin-top: 6px;
-  font-family: var(--font-family);
-  font-size: var(--text-display);
-  font-weight: var(--fw-black);
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #0f172a, #4b5563);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  height: 3px;
+  width: 100%;
+  max-width: 44px;
+  background: rgba(var(--accent-rgb), 0.5);
+  border-radius: 2px;
 }
 
-.summary-payback-unit {
-  font-size: var(--text-subtitle);
+.results-system {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  text-align: right;
+}
+
+.results-system-label {
+  font-family: var(--font-family);
+  font-size: 11px;
   font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.55);
 }
 
-.summary-profit-main {
+.results-system-name {
   font-family: var(--font-family);
-  font-size: calc(var(--text-display) + 4px);
-  font-weight: var(--fw-black);
-  letter-spacing: -0.04em;
-  background: linear-gradient(135deg, var(--accent), #f97316);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: var(--text-h3);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
-.summary-profit-note {
-  margin-top: 6px;
-}
-
-.summary-revenue-extra {
-  margin-top: 10px;
-}
-
-.calculator-assumptions {
-  margin-top: 18px;
+.results-system-meta {
   font-family: var(--font-family);
   font-size: var(--text-caption);
-  color: rgba(15, 23, 42, 0.55);
+  color: rgba(17, 24, 39, 0.55);
 }
 
-/* ─── Payback Bar ─── */
-.payback-bar {
-  height: 6px;
-  border-radius: 6px;
-  background: rgba(15, 23, 42, 0.08);
-  overflow: hidden;
-  margin-top: 12px;
+/* Сетка экономических метрик */
+.results-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
 }
 
-.payback-bar-fill {
-  height: 100%;
-  border-radius: 6px;
-  background: linear-gradient(90deg, var(--accent), #4b5563);
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 12px var(--accent-glow);
+.results-metric {
+  padding: 14px 16px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* ─── Bottom CTA ─── */
+.results-metric-label {
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.5);
+}
+
+.results-metric-value {
+  font-family: var(--font-family);
+  font-size: 1.05rem;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.results-metric-net {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.results-metric-note {
+  font-family: var(--font-family);
+  font-size: 11px;
+  color: rgba(17, 24, 39, 0.5);
+  margin-top: 2px;
+}
+
+/* CTA и дисклеймер — плотнее к модулю */
 .calculator-bottom-cta {
   text-align: center;
-  margin-top: 48px;
+  margin-top: 24px;
 }
 
-@media (max-width: 768px) {
-  .calculator-input-row {
+.calculator-bottom-cta .btn {
+  padding: 14px 28px;
+  font-size: var(--text-body);
+  font-weight: var(--fw-semibold);
+}
+
+.calculator-disclaimer {
+  margin-top: 12px;
+  font-family: var(--font-family);
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(17, 24, 39, 0.6);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Адаптив */
+@media (max-width: 960px) {
+  .calculator-module {
     grid-template-columns: 1fr;
   }
 
-  .calculator-summary-card {
-    padding: 22px 18px 20px;
+  .calculator-inputs {
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding: 24px 24px 20px;
+    gap: 20px;
   }
 
-  .summary-columns {
-    grid-template-columns: 1fr;
+  .calculator-results {
+    padding: 24px 24px 20px;
     gap: 18px;
   }
 
-  .summary-column + .summary-column {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid rgba(148, 163, 184, 0.28);
-    padding-top: 14px;
+  .results-primary {
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 16px;
   }
 
-  .summary-profit-main {
-    font-size: var(--text-display);
+  .results-system {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator-header {
+    margin-bottom: 22px;
+  }
+
+  .results-metrics {
+    gap: 10px 14px;
+  }
+
+  .results-metric {
+    padding: 12px 14px 10px;
   }
 }

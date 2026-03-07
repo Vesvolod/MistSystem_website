@@ -24,11 +24,26 @@ const MODELS: Model[] = [
 
 const HOURS_PER_DAY = 8
 const ELECTRICITY_IDR_PER_KWH = 1_800
-const PROFIT_MARGIN = 0.30
-const UTILIZATION = 0.75
 
-function estimatedExtraGuests(area: number) {
-  return Math.max(2, Math.round(area / 20))
+// Бизнес-модель: консервативные допущения (без декоративных коэффициентов)
+const SEAT_DENSITY = 0.2 // посадочных мест на м² (консервативно для outdoor)
+const HEAT_LOSS_FACTOR = 0.28 // доля потерь использования в жаркие часы
+const RECOVERY_FACTOR = 0.55 // доля восстановления за счёт туманообразования
+const GROSS_MARGIN = 0.28 // валовая маржа на доп. выручку
+const MAINTENANCE_IDR_PER_MONTH = 75_000 // резерв на обслуживание в месяц
+
+/** Доп. сложность установки только для крупных объектов (трубы, маршрутизация). */
+function installationUplift(area: number): number {
+  if (area >= 300) return 0.1
+  if (area >= 150) return 0.05
+  return 0
+}
+
+/** Оценка доп. гостей в день: места → потери от жары → доля восстановления. */
+function estimatedExtraGuests(area: number): number {
+  const seats = area * SEAT_DENSITY
+  const recovered = seats * HEAT_LOSS_FACTOR * RECOVERY_FACTOR
+  return Math.max(2, Math.round(recovered))
 }
 
 export function Calculator() {
@@ -45,23 +60,30 @@ export function Calculator() {
     const powerKW = model.powerW / 1000
     const electricityPerDay = Math.round(powerKW * HOURS_PER_DAY * ELECTRICITY_IDR_PER_KWH)
     const revenuePerDay = Math.round(extraGuests * Math.max(0, avgCheck))
-    const profitPerDay = Math.round(revenuePerDay * PROFIT_MARGIN * UTILIZATION)
-    const netProfitPerDay = Math.max(profitPerDay - electricityPerDay, 0)
-    const paybackMonths = netProfitPerDay > 0 ? model.price / netProfitPerDay / 30 : null
-    const paybackPct =
-      paybackMonths != null && paybackMonths <= 24
-        ? Math.min(100, Math.round((12 / paybackMonths) * 8))
-        : 0
+    const contributionPerDay = Math.round(revenuePerDay * GROSS_MARGIN)
+    const monthlyContribution = contributionPerDay * 30
+    const monthlyElectricity = electricityPerDay * 30
+    const monthlyNetBenefit = Math.max(
+      0,
+      monthlyContribution - monthlyElectricity - MAINTENANCE_IDR_PER_MONTH
+    )
+    const installedCost = Math.round(model.price * (1 + installationUplift(safeArea)))
+    const paybackMonthsRaw =
+      monthlyNetBenefit > 0 ? installedCost / monthlyNetBenefit : null
+    const paybackMonths =
+      paybackMonthsRaw != null
+        ? paybackMonthsRaw < 1.5
+          ? 2
+          : Math.ceil(paybackMonthsRaw)
+        : null
 
     return {
       model,
       extraGuests,
       revenuePerDay,
-      profitPerDay,
       electricityPerDay,
-      netProfitPerDay,
-      paybackMonths: paybackMonths != null ? +paybackMonths.toFixed(1) : null,
-      paybackPct,
+      monthlyNetBenefit,
+      paybackMonths,
     }
   }, [area, avgCheck])
 
@@ -80,88 +102,85 @@ export function Calculator() {
           <p className="calculator-desc">{t('calculator.subtitleSimple')}</p>
         </header>
 
-        <div className="calculator-stack">
-          {/* Ввод данных */}
-          <div className="calculator-input-card">
-            <div className="calculator-input-row">
-              <div className="calc-field calc-field-area">
-                <label htmlFor="area">{t('calculator.areaLabel')}</label>
-                <div className="calc-field-row">
-                  <input
-                    id="area"
-                    type="range"
-                    min={10}
-                    max={600}
-                    value={area}
-                    onChange={(e) => setArea(Number(e.target.value))}
-                  />
-                  <span className="calc-value">{area} m²</span>
-                </div>
-              </div>
-
-              <div className="calc-field calc-field-check">
-                <label htmlFor="avgCheck">{t('calculator.avgCheckShort')}</label>
+        <div className="calculator-module">
+          <div className="calculator-inputs">
+            <div className="calc-field calc-field-area">
+              <label htmlFor="area">{t('calculator.areaLabel')}</label>
+              <div className="calc-field-row">
                 <input
-                  id="avgCheck"
-                  type="number"
-                  min={0}
-                  step={10000}
-                  value={avgCheck}
-                  onChange={(e) => setAvgCheck(Number(e.target.value) || 0)}
+                  id="area"
+                  type="range"
+                  min={10}
+                  max={600}
+                  value={area}
+                  onChange={(e) => setArea(Number(e.target.value))}
                 />
+                <span className="calc-value" aria-live="polite">{area} m²</span>
+              </div>
+            </div>
+            <div className="calc-field calc-field-check">
+              <label htmlFor="avgCheck">{t('calculator.avgCheckShort')}</label>
+              <input
+                id="avgCheck"
+                type="number"
+                min={0}
+                step={10000}
+                value={avgCheck}
+                onChange={(e) => setAvgCheck(Number(e.target.value) || 0)}
+              />
+            </div>
+            <p className="calculator-helper-trust">{t('calculator.helperTrust')}</p>
+          </div>
+
+          <div className="calculator-results">
+            <div className="results-primary">
+              <div className="results-payback">
+                <span className="results-payback-label">{t('calculator.infographic.payback')}</span>
+                {result.paybackMonths != null && result.paybackMonths < 120 ? (
+                  <span className="results-payback-value">
+                    ~{result.paybackMonths}{' '}
+                    <span className="results-payback-unit">{t('calculator.paybackMonths')}</span>
+                  </span>
+                ) : (
+                  <span className="results-payback-value">—</span>
+                )}
+                <span className="results-payback-line" aria-hidden="true" />
+              </div>
+              <div className="results-system">
+                <span className="results-system-label">{t('calculator.infographic.model')}</span>
+                <span className="results-system-name">{result.model.label}</span>
+                <span className="results-system-meta">
+                  {t('calculator.infographic.systemRange')
+                    .replace('{min}', String(result.model.minArea))
+                    .replace('{max}', String(result.model.maxArea))}{' '}
+                  · {result.model.powerW}W
+                </span>
               </div>
             </div>
 
-            <p className="calculator-assumptions">{t('calculator.assumptionNote')}</p>
-          </div>
-
-          {/* Результаты: модель, цена, окупаемость, прибыль */}
-          <div className="calculator-summary-card">
-            <div className="summary-columns">
-              <div className="summary-column summary-column-model">
-                <p className="summary-label">{t('calculator.infographic.model')}</p>
-                <p className="summary-value summary-model-name">{result.model.label}</p>
-                <p className="summary-sublabel">
-                  {result.model.minArea}–{result.model.maxArea} m² · {result.model.powerW}W
-                </p>
+            <div className="results-metrics">
+              <div className="results-metric">
+                <span className="results-metric-label">{t('calculator.infographic.systemCost')}</span>
+                <span className="results-metric-value">{fmt(result.model.price)}</span>
               </div>
-
-              <div className="summary-column summary-column-investment">
-                <p className="summary-label">{t('calculator.infographic.systemCost')}</p>
-                <p className="summary-value">{fmt(result.model.price)}</p>
-
-                <p className="summary-sublabel">
-                  {t('calculator.infographic.payback')}
-                </p>
-                {result.paybackMonths != null && result.paybackMonths < 120 ? (
-                  <>
-                    <p className="summary-payback">
-                      ~{result.paybackMonths}{' '}
-                      <span className="summary-payback-unit">{t('calculator.paybackMonths')}</span>
-                    </p>
-                    <div className="payback-bar">
-                      <div
-                        className="payback-bar-fill"
-                        style={{ width: `${result.paybackPct}%` }}
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <p className="summary-payback">—</p>
-                )}
-              </div>
-
-              <div className="summary-column summary-column-profit">
-                <p className="summary-label">{t('calculator.infographic.netProfit')}</p>
-                <p className="summary-profit-main">{fmt(result.netProfitPerDay)}</p>
-                <p className="summary-sublabel summary-profit-note">
-                  {t('calculator.infographic.profitNote')}
-                </p>
-
-                <p className="summary-sublabel summary-revenue-extra">
-                  {t('calculator.infographic.revenueDay')} ·{' '}
+              <div className="results-metric">
+                <span className="results-metric-label">{t('calculator.infographic.revenueDay')}</span>
+                <span className="results-metric-value">{fmt(result.revenuePerDay)}</span>
+                <span className="results-metric-note">
                   {t('calculator.infographic.extraGuests').replace('{n}', String(result.extraGuests))}
-                </p>
+                </span>
+              </div>
+              <div className="results-metric">
+                <span className="results-metric-label">{t('calculator.infographic.monthlyNet')}</span>
+                <span className="results-metric-value results-metric-net">{fmt(result.monthlyNetBenefit)}</span>
+                <span className="results-metric-note">{t('calculator.infographic.monthlyNetNote')}</span>
+              </div>
+              <div className="results-metric">
+                <span className="results-metric-label">{t('calculator.infographic.electricityDay')}</span>
+                <span className="results-metric-value">{fmt(result.electricityPerDay)}</span>
+                <span className="results-metric-note">
+                  {result.model.powerW}W · {HOURS_PER_DAY}h/day
+                </span>
               </div>
             </div>
           </div>
@@ -172,6 +191,8 @@ export function Calculator() {
             {t('calculator.ctaAfter')}
           </a>
         </div>
+
+        <p className="calculator-disclaimer">{t('calculator.disclaimerLong')}</p>
       </div>
     </section>
   )

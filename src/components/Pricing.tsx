@@ -21,7 +21,7 @@ export function Pricing() {
               <li>{t('pricing.card1.li3')}</li>
             </ul>
             <p className="pricing-note">{t('pricing.card1.note')}</p>
-            <a href="#lead-form" className="btn btn-primary btn-full">
+            <a href="#lead-form" className="btn btn-secondary btn-full">
               {t('pricing.card1.cta')}
             </a>
           </article>
@@ -54,6 +54,8 @@ export function Pricing() {
             </a>
           </article>
         </div>
+
+        <p className="pricing-disclaimer">{t('pricing.disclaimer')}</p>
       </div>
     </section>
   )

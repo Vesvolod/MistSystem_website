@@ -4,64 +4,121 @@
   overflow: hidden;
 }
 
+.lead-section.section {
+  padding-bottom: 80px;
+}
+
 .lead-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 64px;
   align-items: start;
   position: relative;
   z-index: 1;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .lead-copy .section-title {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .lead-copy .section-subtitle {
-  color: rgba(15, 23, 42, 0.65);
-  margin-bottom: 36px;
+  font-size: 18px;
+  line-height: 1.68;
+  color: rgba(17, 24, 39, 0.82);
+  margin-bottom: 28px;
+  max-width: 420px;
 }
 
-.lead-contacts {
+/* Блок «что получите» — компактный, легко сканировать */
+.lead-value {
+  margin-top: 0;
+  padding: 20px 20px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  background: rgba(15, 23, 42, 0.02);
+}
+
+.lead-value-title {
+  font-family: var(--font-family);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(15, 23, 42, 0.5);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.lead-value-list {
+  margin: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.lead-contacts p {
+.lead-value-list li {
+  position: relative;
+  padding-left: 20px;
   font-family: var(--font-family);
-  font-size: var(--text-caption);
-  font-weight: var(--fw-semibold);
+  font-size: var(--text-body);
+  line-height: 1.52;
+  color: rgba(15, 23, 42, 0.78);
+}
+
+.lead-value-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+/* WhatsApp — осознанный альтернативный путь */
+.lead-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lead-actions-label {
+  font-family: var(--font-family);
+  font-size: var(--text-xs);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(15, 23, 42, 0.55);
-  margin-bottom: 4px;
+  letter-spacing: 0.16em;
+  color: rgba(15, 23, 42, 0.5);
 }
 
-.lead-contacts a {
+.lead-actions-note {
   font-family: var(--font-family);
-  font-size: var(--text-body-lg);
-  color: rgba(15, 23, 42, 0.8);
-  text-decoration: none;
-  transition: color 0.2s;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(15, 23, 42, 0.62);
+  max-width: 360px;
 }
 
-.lead-contacts a:hover {
-  color: var(--accent);
-}
-
-/* ─── Form ─── */
+/* ─── Форма: типографика и отступы в системе страницы ─── */
 .lead-form-wrapper {
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 24px;
-  padding: 40px 32px;
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 32px;
+  box-shadow: var(--shadow-sm);
 }
 
 .lead-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
 .lead-field label {
@@ -70,7 +127,7 @@
   font-size: var(--text-caption);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.04em;
-  color: rgba(15, 23, 42, 0.65);
+  color: rgba(15, 23, 42, 0.62);
   margin-bottom: 8px;
 }
 
@@ -80,11 +137,11 @@
   width: 100%;
   padding: 12px 16px;
   font-family: var(--font-family);
-  font-size: var(--text-body-lg);
-  color: #111111;
+  font-size: var(--text-body);
+  color: var(--text-primary);
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -93,7 +150,7 @@
 .lead-field select:focus,
 .lead-field textarea:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow: var(--focus-ring);
 }
 
 .lead-field select {
@@ -102,20 +159,25 @@
 
 .lead-field select option {
   background: #ffffff;
-  color: #111111;
+  color: var(--text-primary);
 }
 
 .lead-field textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 88px;
+}
+
+.lead-form .btn {
+  margin-top: 4px;
 }
 
 .lead-policy {
   font-family: var(--font-family);
-  font-size: var(--text-sm);
-  color: rgba(15, 23, 42, 0.5);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(15, 23, 42, 0.58);
   text-align: center;
-  margin-top: -4px;
+  margin-top: 12px;
 }
 
 .lead-status {
@@ -134,9 +196,9 @@
 }
 
 .lead-status-error {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.12);
 }
 
 @media (max-width: 768px) {

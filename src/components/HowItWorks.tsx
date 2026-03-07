@@ -8,7 +8,6 @@ export function HowItWorks() {
     t('product.f2'),
     t('product.f3'),
     t('product.f4'),
-    t('product.f5'),
   ]
 
   return (
@@ -17,120 +16,67 @@ export function HowItWorks() {
         <div className="how-diagram">
           <div className="how-diagram-inner">
             <div className="how-mist-visual">
-              <svg width="100%" height="140" viewBox="0 0 800 160" style={{ maxWidth: 700 }}>
-                <rect x="80" y="18" width="640" height="4" rx="2" fill="#b8bcc4" />
-
-                {[160, 280, 400, 520, 640].map((nx, ni) => (
+              <svg className="how-diagram-svg" viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <defs>
+                  {/* Мягкое размытие для мелких капель — воздушный вид */}
+                  <filter id="how-droplet-soft" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur" />
+                    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1.4 0" result="soft" />
+                    <feMerge>
+                      <feMergeNode in="soft" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                {/* Горизонтальная труба — нейтральный серый */}
+                <rect x="24" y="16" width="352" height="6" rx="2" className="how-pipe" />
+                {/* Нозлы и зоны тумана под каждым */}
+                {[72, 136, 200, 264, 328].map((nx, ni) => (
                   <g key={ni}>
-                    <rect x={nx - 6} y="22" width="12" height="14" rx="2" fill="#9ea3ab" />
-                    <rect x={nx - 3} y="34" width="6" height="6" rx="2" fill="#d4944c" />
-
+                    {/* Нозл — компактный фитинг, тёплый акцент */}
+                    <rect x={nx - 5} y="22" width="10" height="6" rx="1" className="how-nozzle-body" />
+                    <rect x={nx - 2} y="28" width="4" height="5" rx="0.5" className="how-nozzle-tip" />
+                    {/* Лёгкая активная дымка прямо под нозлом — 2–3 частицы */}
+                    <circle cx={nx} cy="35" r="0.6" className="how-spray-hint" style={{ animationDelay: `${ni * 0.3}s` }} />
+                    <circle cx={nx - 0.5} cy="36" r="0.45" className="how-spray-hint" style={{ animationDelay: `${ni * 0.3 + 0.4}s` }} />
+                    <circle cx={nx + 0.4} cy="35.5" r="0.5" className="how-spray-hint" style={{ animationDelay: `${ni * 0.3 + 0.8}s` }} />
+                    {/* Конус тумана — мягкий холодный синий */}
                     <path
-                      d={`M${nx} 40 L${nx - 55} 150 L${nx + 55} 150 Z`}
-                      fill="url(#sprayGrad)"
-                      opacity="0.42"
+                      d={`M${nx} 34 L${nx - 32} 108 L${nx + 32} 108 Z`}
+                      className="how-mist-cone"
+                      style={{ animationDelay: `${ni * 0.4}s` }}
                     />
-
-                    {Array.from({ length: 14 }, (_, pi) => {
-                      const offsetX = (pi - 6.5) * 9
-                      const baseX = nx + offsetX
-                      const delay = ni * 0.25 + pi * 0.12
-                      const startY = 46 + (pi % 3) * 4
-                      const endY = 150
-                      const drift = offsetX > 0 ? 16 : -16
-                      const duration = 2.2 + (pi % 4) * 0.35
-
-                      return (
-                        <circle key={pi} cx={baseX} r="2.4" fill="rgba(70,160,210,0.55)">
-                          <animate
-                            attributeName="cy"
-                            from={`${startY}`}
-                            to={`${endY}`}
-                            dur={`${duration}s`}
-                            begin={`${delay}s`}
-                            repeatCount="indefinite"
-                          />
-                          <animate
-                            attributeName="opacity"
-                            values="0;0.75;0.35;0"
-                            dur={`${duration}s`}
-                            begin={`${delay}s`}
-                            repeatCount="indefinite"
-                          />
-                          <animate
-                            attributeName="r"
-                            values="1.4;3.2;1.2"
-                            dur={`${duration}s`}
-                            begin={`${delay}s`}
-                            repeatCount="indefinite"
-                          />
-                          <animate
-                            attributeName="cx"
-                            values={`${baseX};${baseX + drift}`}
-                            dur={`${duration}s`}
-                            begin={`${delay}s`}
-                            repeatCount="indefinite"
-                          />
-                        </circle>
-                      )
-                    })}
+                    {/* Мелкие частицы в тумане — мерцание */}
+                    <circle cx={nx - 8} cy="58" r="1.2" className="how-mist-dot" style={{ animationDelay: `${ni * 0.4 + 0.2}s` }} />
+                    <circle cx={nx + 6} cy="72" r="1" className="how-mist-dot" style={{ animationDelay: `${ni * 0.4 + 0.5}s` }} />
+                    <circle cx={nx - 4} cy="85" r="1.2" className="how-mist-dot" style={{ animationDelay: `${ni * 0.4 + 0.8}s` }} />
+                    {/* Мелкие капли — падают от нозла до низа конуса и испаряются */}
+                    <g filter="url(#how-droplet-soft)">
+                      {[
+                        { x: 0, r: 0.7 },
+                        { x: -0.35, r: 0.55 },
+                        { x: 0.4, r: 0.6 },
+                        { x: -0.2, r: 0.5 },
+                        { x: 0.3, r: 0.55 },
+                        { x: -0.4, r: 0.5 },
+                      ].map((d, i) => (
+                        <circle
+                          key={i}
+                          cx={nx + d.x}
+                          cy="36"
+                          r={d.r}
+                          className="how-droplet-fall"
+                          style={{ animationDelay: `${ni * 0.5 + i * 0.35}s` }}
+                        />
+                      ))}
+                    </g>
                   </g>
                 ))}
-
-                <defs>
-                  <linearGradient id="sprayGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="rgba(173, 216, 245, 0.65)" />
-                    <stop offset="55%" stopColor="rgba(173, 216, 245, 0.35)" />
-                    <stop offset="100%" stopColor="rgba(173, 216, 245, 0)" />
-                  </linearGradient>
-                </defs>
+                {/* Подпись «Cooling zone» — по центру между низом конусов и низом карточки */}
+                <g className="how-cooling-zone-wrap">
+                  <text x="200" y="123.5" textAnchor="middle" className="how-cooling-zone-label">Cooling zone</text>
+                </g>
               </svg>
-            </div>
-
-            <div className="how-temp-bar">
-              <span className="how-temp-label how-temp-label-hot">36°C</span>
-              <div className="how-temp-track">
-                <svg width="100%" height="30" viewBox="0 0 600 30" style={{ maxWidth: 500 }}>
-                  {[0, 1, 2, 3, 4].map((d) => (
-                    <circle key={d} r="3" cy="15" fill="#d4944c" opacity="0.35">
-                      <animate
-                        attributeName="cx"
-                        from="0"
-                        to="600"
-                        dur="3s"
-                        begin={`${d * 0.6}s`}
-                        repeatCount="indefinite"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        values="0;0.5;0.5;0"
-                        dur="3s"
-                        begin={`${d * 0.6}s`}
-                        repeatCount="indefinite"
-                      />
-                      <animate
-                        attributeName="r"
-                        values="2;4;2"
-                        dur="3s"
-                        begin={`${d * 0.6}s`}
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                  ))}
-                  <rect
-                    x="180"
-                    y="2"
-                    width="240"
-                    height="26"
-                    rx="13"
-                    fill="rgba(70,160,210,0.06)"
-                    stroke="rgba(70,160,210,0.15)"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                  />
-                </svg>
-              </div>
-              <span className="how-temp-label how-temp-label-cool">26°C</span>
             </div>
           </div>
         </div>

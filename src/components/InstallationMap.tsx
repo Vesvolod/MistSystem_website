@@ -9,10 +9,6 @@ export function InstallationMap() {
   return (
     <section id="installation" className="section section-animated installation-section">
       <div className="container installation-layout">
-        <div className="installation-visual">
-          <InstallationDiagram />
-        </div>
-
         <div className="installation-copy">
           <div className="section-header">
             <h2 className="section-title">{t('install.title')}</h2>
@@ -27,6 +23,10 @@ export function InstallationMap() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="installation-visual">
+          <InstallationDiagram />
         </div>
       </div>
     </section>

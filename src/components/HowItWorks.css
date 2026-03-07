@@ -2,28 +2,32 @@
   background: var(--bg-dark-2);
 }
 
+.how-section.section {
+  padding-top: 64px;
+  padding-bottom: 68px;
+}
+
 .how-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 72px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 52px;
   align-items: center;
 }
 
 .how-diagram {
   width: 100%;
-  max-width: 780px;
+  max-width: 720px;
   background: #ffffff;
-  border-radius: 28px;
-  padding: 22px 22px 26px;
+  border-radius: var(--radius-lg);
+  padding: 20px 20px 22px;
   position: relative;
-  box-shadow:
-    0 20px 55px rgba(15, 23, 42, 0.14),
-    0 0 0 1px rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .how-diagram-inner {
   position: relative;
-  min-height: 300px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,54 +46,146 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  opacity: 0;
-  transform: translateY(24px);
-  animation: how-fade-up 0.7s ease 0.15s forwards;
+  opacity: 1;
+  transform: none;
 }
 
-.how-temp-bar {
-  margin-top: 28px;
-  height: 64px;
-  border-radius: 16px;
-  background: linear-gradient(
-    90deg,
-    rgba(220, 80, 60, 0.16) 0%,
-    rgba(212, 148, 76, 0.2) 30%,
-    rgba(116, 180, 220, 0.18) 65%,
-    rgba(70, 160, 210, 0.28) 100%
-  );
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 0 32px;
-  opacity: 0;
-  transform: translateY(24px);
-  animation: how-fade-up 0.7s ease 0.35s forwards;
-  box-shadow:
-    0 10px 30px rgba(15, 23, 42, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.4);
+.how-diagram-svg {
+  width: 100%;
+  height: auto;
+  min-height: 220px;
+  max-height: 300px;
+  object-fit: contain;
+  overflow: visible;
 }
 
-.how-temp-track {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Чтобы transform-анимации в SVG работали стабильно */
+.how-diagram-svg .how-mist-cone,
+.how-diagram-svg .how-mist-dot,
+.how-diagram-svg .how-droplet-fall,
+.how-diagram-svg .how-spray-hint {
+  transform-box: fill-box;
 }
 
-.how-temp-label {
+/* Труба — нейтральный серый */
+.how-pipe {
+  fill: rgba(100, 116, 139, 0.45);
+  stroke: rgba(71, 85, 105, 0.25);
+  stroke-width: 0.5;
+}
+
+/* Нозлы — тёплый акцент, очень мягкий пульс «включено», без мигания */
+.how-nozzle-body {
+  fill: rgba(199, 138, 18, 0.75);
+  stroke: rgba(180, 120, 10, 0.35);
+  stroke-width: 0.6;
+  animation: how-nozzle-pulse 4s ease-in-out infinite;
+}
+
+.how-nozzle-tip {
+  fill: rgba(199, 138, 18, 0.6);
+  stroke: none;
+  animation: how-nozzle-pulse 4s ease-in-out infinite 0.2s;
+}
+
+/* Лёгкая дымка прямо под нозлом — намёк на активное распыление */
+.how-spray-hint {
+  fill: rgba(158, 195, 228, 0.5);
+  animation: how-spray-hint 3.5s ease-in-out infinite;
+}
+
+/* Конус тумана — холодный синий, чуть контрастнее */
+.how-mist-cone {
+  fill: rgba(158, 195, 228, 0.3);
+  stroke: none;
+  transform-origin: 50% 0;
+  animation: how-mist-drift 4.5s ease-in-out infinite;
+}
+
+/* Мелкие частицы в тумане */
+.how-mist-dot {
+  fill: rgba(158, 195, 228, 0.48);
+  animation: how-mist-dot 5.5s ease-in-out infinite;
+}
+
+/* Мелкие капли — падают до низа конуса и испаряются */
+.how-droplet-fall {
+  fill: rgba(158, 195, 228, 0.56);
+  transform-origin: center;
+  animation: how-droplet-fall 2.8s ease-in infinite;
+}
+
+/* Подпись «Cooling zone» — читаемая аннотация */
+.how-cooling-zone-label {
   font-family: var(--font-family);
-  font-size: var(--text-body);
-  font-weight: var(--fw-extrabold);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  fill: rgba(15, 23, 42, 0.55);
+  animation: how-label-pulse 6s ease-in-out infinite;
 }
 
-.how-temp-label-hot {
-  color: rgba(220, 80, 60, 0.9);
+/* Обёртка зоны охлаждения — очень мягкое «дыхание» opacity */
+.how-cooling-zone-wrap {
+  animation: how-cooling-breathe 6s ease-in-out infinite;
 }
 
-.how-temp-label-cool {
-  color: rgba(46, 144, 203, 0.95);
+@keyframes how-nozzle-pulse {
+  0%, 100% { opacity: 0.97; }
+  50% { opacity: 1; }
+}
+
+@keyframes how-spray-hint {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes how-mist-drift {
+  0%, 100% {
+    opacity: 0.52;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scaleY(1.032);
+  }
+}
+
+@keyframes how-mist-dot {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.58;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes how-label-pulse {
+  0%, 100% { opacity: 0.92; }
+  50% { opacity: 1; }
+}
+
+/* Мелкие капли: падают от нозла до низа конуса, к низу испаряются */
+@keyframes how-droplet-fall {
+  0% {
+    opacity: 0.75;
+    transform: translateY(0) scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: translateY(50px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(72px) scale(0.35);
+  }
+}
+
+@keyframes how-cooling-breathe {
+  0%, 100% { opacity: 0.94; }
+  50% { opacity: 1; }
 }
 
 @keyframes how-fade-up {
@@ -148,57 +244,59 @@
 }
 
 .how-copy {
-  max-width: 460px;
+  max-width: 440px;
   margin-left: auto;
 }
 
-.how-heading {
-  font-family: var(--font-family);
-  font-size: var(--text-h1);
-  font-weight: var(--fw-black);
-  color: #111827;
-  line-height: var(--lh-tight);
-  margin-bottom: 16px;
+.how-copy .section-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #1c1c1c;
+  margin-bottom: 10px;
 }
 
+.how-copy .section-subtitle,
 .how-lead {
-  font-family: var(--font-family);
-  font-size: var(--text-lead);
-  line-height: var(--lh-loose);
-  color: #6b7280;
-  margin-bottom: 28px;
-  max-width: 440px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(17, 24, 39, 0.82);
+  margin-bottom: 20px;
+  max-width: 38em;
+  font-weight: var(--fw-normal);
 }
 
-/* Список преимуществ — тот же визуальный стиль, что и у списка в InstallationMap */
 .product-features {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .product-features li {
   position: relative;
-  padding-left: 26px;
+  padding-left: 22px;
   font-family: var(--font-family);
-  font-size: var(--text-body);
-  line-height: var(--lh-loose);
-  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.58;
+  color: rgba(17, 24, 39, 0.88);
+  max-width: 38em;
 }
 
 .product-features li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: radial-gradient(circle, #fbbf77 0%, #e89c4c 45%, rgba(249, 250, 251, 0.1) 80%);
-  box-shadow: 0 0 0 4px rgba(248, 204, 148, 0.25);
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.12);
 }
 
 .how-steps-list {
@@ -325,25 +423,57 @@
 @media (max-width: 960px) {
   .how-layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
+    gap: 44px;
+  }
+
+  .how-copy {
+    max-width: none;
+    margin-left: 0;
   }
 
   .how-diagram {
-    max-width: 440px;
+    max-width: 480px;
     margin: 0 auto;
   }
 }
 
 @media (max-width: 640px) {
   .how-diagram {
-    padding: 24px 20px 28px;
+    padding: 20px 18px 24px;
   }
 
   .how-diagram-inner {
-    height: 280px;
+    min-height: 240px;
   }
 
-  .how-heading {
-    font-size: var(--text-h1);
+  .how-mist-cone,
+  .how-mist-dot {
+    animation-duration: 7s;
+  }
+
+  .how-droplet-fall {
+    animation-duration: 3.5s;
+  }
+
+  .how-nozzle-body,
+  .how-nozzle-tip {
+    animation-duration: 5s;
+  }
+
+  .how-cooling-zone-wrap {
+    animation-duration: 8s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-mist-cone,
+  .how-mist-dot,
+  .how-droplet-fall,
+  .how-spray-hint,
+  .how-nozzle-body,
+  .how-nozzle-tip,
+  .how-cooling-zone-wrap,
+  .how-cooling-zone-label {
+    animation: none;
   }
 }

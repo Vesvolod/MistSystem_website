@@ -62,53 +62,60 @@ export function BeforeAfter() {
     <section id="before-after" className="section section-animated before-after-section">
       <div className="container before-after-layout">
         <div className="section-header">
-          <h2 className="section-title">{t('beforeAfter.title')}</h2>
+          <h2 className="section-title">
+            {t('beforeAfter.titleLine1')}
+            <br />
+            {t('beforeAfter.titleLine2')}
+          </h2>
           <p className="section-subtitle">{t('beforeAfter.subtitle')}</p>
         </div>
 
         <div className="before-after-visual">
-          <div className="before-after-label before-label">
-            <span>{t('beforeAfter.beforeLabel')}</span>
-          </div>
-          <div className="before-after-label after-label">
-            <span>{t('beforeAfter.afterLabel')}</span>
-          </div>
+          <div className="before-after-card">
+            <div
+              ref={frameRef}
+              className="before-after-frame"
+              role="slider"
+              aria-valuenow={value}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label={t('beforeAfter.sliderLabel')}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+              onMouseMove={handleMouseMove}
+              onTouchStart={(event) => {
+                setIsHovering(true)
+                handleTouchStart(event)
+              }}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onTouchCancel={handleTouchEnd}
+            >
+              <div className="before-after-label before-label">
+                <span>{t('beforeAfter.beforeLabel')}</span>
+              </div>
+              <div className="before-after-label after-label">
+                <span>{t('beforeAfter.afterLabel')}</span>
+              </div>
+              <div className="before-after-image before-image">
+                <img src="/images/terrace-before.jpg" alt={t('beforeAfter.beforeAlt')} />
+              </div>
+              <div
+                className="before-after-image after-image"
+                style={{ ['--split' as string]: `${value}%` }}
+              >
+                <img src="/images/terrace-after.jpg" alt={t('beforeAfter.afterAlt')} />
+              </div>
+              <div
+                className="before-after-handle"
+                style={{ left: `${value}%` }}
+              >
+                <div className="before-after-handle-line" />
+                <div className="before-after-handle-knob" />
+              </div>
+            </div>
 
-          <div
-            ref={frameRef}
-            className="before-after-frame"
-            role="slider"
-            aria-valuenow={value}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-label={t('beforeAfter.sliderLabel')}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            onMouseMove={handleMouseMove}
-            onTouchStart={(event) => {
-              setIsHovering(true)
-              handleTouchStart(event)
-            }}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onTouchCancel={handleTouchEnd}
-          >
-            <div className="before-after-image before-image">
-              <img src="/images/terrace-before.jpg" alt={t('beforeAfter.beforeAlt')} />
-            </div>
-            <div
-              className="before-after-image after-image"
-              style={{ ['--split' as string]: `${value}%` }}
-            >
-              <img src="/images/terrace-after.jpg" alt={t('beforeAfter.afterAlt')} />
-            </div>
-            <div
-              className="before-after-handle"
-              style={{ left: `${value}%` }}
-            >
-              <div className="before-after-handle-line" />
-              <div className="before-after-handle-knob" />
-            </div>
+            <p className="before-after-note">{t('beforeAfter.note')}</p>
           </div>
         </div>
       </div>

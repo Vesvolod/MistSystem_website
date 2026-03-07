@@ -17,7 +17,7 @@ function getStoredLocale(): Locale {
   if (typeof window === 'undefined') return defaultLocale
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored === 'en' || stored === 'id') return stored
+    if (stored === 'en' || stored === 'id') return stored as Locale
   } catch {
     // ignore
   }

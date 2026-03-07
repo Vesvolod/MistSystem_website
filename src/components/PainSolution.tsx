@@ -7,9 +7,11 @@ export function PainSolution() {
     <section id="problems" className="section section-animated pain-section">
       <div className="container">
         <div className="section-header">
+          <p className="pain-eyebrow">{t('pain.eyebrow')}</p>
           <h2 className="section-title">{t('pain.title')}</h2>
           <p className="section-subtitle">{t('pain.subtitle')}</p>
         </div>
+        <p className="pain-kicker">{t('pain.kicker')}</p>
         <div className="pain-grid">
           <article className="pain-card pain-card-bad">
             <p className="pain-label">{t('pain.badLabel')}</p>

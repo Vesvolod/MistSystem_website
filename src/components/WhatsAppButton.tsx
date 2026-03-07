@@ -1,8 +1,6 @@
 import './WhatsAppButton.css'
 import { useTranslation } from '../context/LanguageContext'
-
-const WA_NUMBER = '6285190291717'
-const WA_URL = `https://wa.me/${WA_NUMBER}`
+import { WA_URL } from '../config/contact'
 
 export function WhatsAppButton() {
   const { t } = useTranslation()
