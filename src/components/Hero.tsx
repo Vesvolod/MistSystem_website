@@ -1,5 +1,6 @@
 import './Hero.css'
 import { useTranslation } from '../context/LanguageContext'
+import { buildWhatsAppLink } from '../config/contact'
 
 export function Hero() {
   const { t } = useTranslation()
@@ -20,8 +21,16 @@ export function Hero() {
             <a href="#lead-form" className="btn btn-primary btn-lg">
               {t('hero.ctaPrimary')}
             </a>
-            <a href="#calculator" className="btn btn-secondary btn-lg">
+            <a href="#pricing" className="btn btn-secondary btn-lg">
               {t('hero.ctaSecondary')}
+            </a>
+            <a
+              href={buildWhatsAppLink(t('lead.whatsappPrefill'))}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary btn-lg hero-cta-whatsapp"
+            >
+              {t('hero.ctaWhatsApp')}
             </a>
           </div>
         </div>

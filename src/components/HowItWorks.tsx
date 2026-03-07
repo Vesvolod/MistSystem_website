@@ -8,6 +8,7 @@ export function HowItWorks() {
     t('product.f2'),
     t('product.f3'),
     t('product.f4'),
+    t('product.f5'),
   ]
 
   return (

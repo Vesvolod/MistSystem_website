@@ -54,6 +54,7 @@ export function LeadForm() {
               <li>{t('lead.whatYouGet1')}</li>
               <li>{t('lead.whatYouGet2')}</li>
               <li>{t('lead.whatYouGet3')}</li>
+              <li>{t('lead.whatYouGet4')}</li>
             </ul>
           </div>
 
