@@ -2,14 +2,15 @@ import { useState } from 'react'
 import './App.css'
 import { useTranslation } from './context/LanguageContext'
 import { Hero } from './components/Hero'
-import { PainSolution } from './components/PainSolution'
-import { BeforeAfter } from './components/BeforeAfter'
-import { Comparison } from './components/Comparison'
-import { HowItWorks } from './components/HowItWorks'
 import { SocialProof } from './components/SocialProof'
-import { TrustProof } from './components/TrustProof'
+import { PainSolution } from './components/PainSolution'
+import { Benefits } from './components/Benefits'
+import { BeforeAfter } from './components/BeforeAfter'
+import { HowItWorks } from './components/HowItWorks'
+import { Comparison } from './components/Comparison'
 import { Calculator } from './components/Calculator'
 import { Pricing } from './components/Pricing'
+import { TrustProof } from './components/TrustProof'
 import { Process } from './components/Process'
 import { LeadForm } from './components/LeadForm'
 import { FinalCTA } from './components/FinalCTA'
@@ -59,14 +60,15 @@ function App() {
 
       <main>
         <Hero />
-        <PainSolution />
-        <BeforeAfter />
-        <Comparison />
-        <HowItWorks />
         <SocialProof />
-        <TrustProof />
+        <PainSolution />
+        <Benefits />
+        <BeforeAfter />
+        <HowItWorks />
+        <Comparison />
         <Calculator />
         <Pricing />
+        <TrustProof />
         <Process />
         <LeadForm />
         <FinalCTA />

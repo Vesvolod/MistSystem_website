@@ -3,8 +3,8 @@
 }
 
 .process-section.section {
-  padding-top: var(--space-24);
-  padding-bottom: var(--space-24);
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
 }
 
 .process-section .section-header {
@@ -14,12 +14,11 @@
 .process-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 900px;
 }
 
 .process-item {
@@ -42,8 +41,8 @@
 
 .process-num {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +50,7 @@
   color: #1e1e1a;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   border-radius: 50%;
   position: relative;
   z-index: 2;
@@ -60,10 +59,10 @@
 .process-connector {
   position: absolute;
   top: 50%;
-  left: calc(50% + 28px);
-  width: calc(100% - 56px);
-  height: 2px;
-  background: rgba(15, 23, 42, 0.1);
+  left: calc(50% + 26px);
+  width: calc(100% - 52px);
+  height: 1px;
+  background: var(--border-strong);
   transform: translateY(-50%);
   z-index: 1;
 }
@@ -73,7 +72,7 @@
 }
 
 .process-body {
-  max-width: 280px;
+  max-width: 260px;
 }
 
 .process-item-title {
@@ -101,7 +100,7 @@
   .process-list {
     grid-template-columns: 1fr;
     gap: 0;
-    max-width: 420px;
+    max-width: 400px;
   }
 
   .process-item {
@@ -124,7 +123,7 @@
     position: relative;
     top: auto;
     left: auto;
-    width: 2px;
+    width: 1px;
     height: 100%;
     flex: 1;
     transform: none;

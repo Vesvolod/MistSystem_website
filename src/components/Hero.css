@@ -1,6 +1,6 @@
 .hero-section {
-  padding-top: var(--space-12);
-  padding-bottom: var(--space-10);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-12);
   background: var(--bg-page);
 }
 
@@ -13,7 +13,7 @@
 }
 
 .hero-content {
-  max-width: 560px;
+  max-width: 540px;
 }
 
 .hero-eyebrow {
@@ -21,7 +21,7 @@
   font-weight: var(--fw-semibold);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--accent);
   margin-bottom: var(--space-4);
 }
 
@@ -67,7 +67,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-6);
-  margin-top: var(--space-10);
+  margin-top: var(--space-12);
   padding-top: var(--space-10);
   border-top: 1px solid var(--border);
 }
@@ -87,10 +87,10 @@
 
 .hero-proof-label {
   font-size: var(--text-xs);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--accent);
   margin-bottom: var(--space-1);
 }
 
@@ -104,6 +104,10 @@
 
 /* Mobile */
 @media (max-width: 900px) {
+  .hero-section {
+    padding-top: var(--space-10);
+  }
+
   .hero-layout {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -160,7 +164,7 @@
   }
 
   .hero-proof-item {
-    padding: var(--space-3);
+    padding: var(--space-3) var(--space-4);
     background: var(--bg-muted);
     border-radius: var(--radius-md);
     border-right: none;

@@ -9,36 +9,43 @@
 .trust-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: var(--space-5);
   max-width: 920px;
   margin: 0 auto;
 }
 
 .trust-card {
-  padding: 24px 20px;
+  padding: var(--space-6) var(--space-5);
   background: var(--bg-light);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trust-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
 .trust-card-title {
   font-family: var(--font-display);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-lg);
   font-weight: var(--fw-semibold);
   color: var(--text-primary);
-  margin: 0 0 8px 0;
+  margin: 0 0 var(--space-2) 0;
+  line-height: var(--lh-snug);
 }
 
 .trust-card-text {
-  font-size: var(--text-caption);
-  line-height: 1.55;
-  color: var(--text-muted);
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .trust-footer-note {
   margin-top: var(--space-8);
-  font-size: var(--text-caption);
+  font-size: var(--text-sm);
   color: var(--text-muted);
   text-align: center;
 }
@@ -46,7 +53,7 @@
 @media (max-width: 768px) {
   .trust-cards {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: var(--space-4);
   }
 
   .trust-footer-note {

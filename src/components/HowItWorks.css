@@ -9,14 +9,14 @@
 
 .how-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: var(--space-12);
   align-items: center;
 }
 
 .how-diagram {
   width: 100%;
-  max-width: 640px;
+  max-width: 600px;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
@@ -33,20 +33,11 @@
   justify-content: center;
 }
 
-.how-diagram-flow {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .how-mist-visual {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  opacity: 1;
-  transform: none;
 }
 
 .how-diagram-svg {
@@ -59,45 +50,45 @@
 }
 
 .how-pipe {
-  fill: rgba(100, 116, 139, 0.45);
-  stroke: rgba(71, 85, 105, 0.25);
+  fill: rgba(100, 116, 139, 0.4);
+  stroke: rgba(71, 85, 105, 0.2);
   stroke-width: 0.5;
 }
 
 .how-nozzle-body {
-  fill: rgba(199, 138, 18, 0.75);
-  stroke: rgba(180, 120, 10, 0.35);
+  fill: rgba(199, 138, 18, 0.7);
+  stroke: rgba(180, 120, 10, 0.3);
   stroke-width: 0.6;
 }
 
 .how-nozzle-tip {
-  fill: rgba(199, 138, 18, 0.6);
+  fill: rgba(199, 138, 18, 0.55);
   stroke: none;
 }
 
 .how-spray-hint {
-  fill: rgba(158, 195, 228, 0.5);
+  fill: rgba(158, 195, 228, 0.45);
 }
 
 .how-mist-cone {
-  fill: rgba(158, 195, 228, 0.3);
+  fill: rgba(158, 195, 228, 0.25);
   stroke: none;
 }
 
 .how-mist-dot {
-  fill: rgba(158, 195, 228, 0.48);
+  fill: rgba(158, 195, 228, 0.42);
 }
 
 .how-droplet-fall {
-  fill: rgba(158, 195, 228, 0.56);
+  fill: rgba(158, 195, 228, 0.5);
 }
 
 .how-cooling-zone-label {
-  font-family: var(--font-family);
+  font-family: var(--font-body);
   font-size: 10px;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   letter-spacing: 0.04em;
-  fill: rgba(15, 23, 42, 0.55);
+  fill: var(--text-muted);
 }
 
 .how-copy {
@@ -107,12 +98,12 @@
 
 .how-copy .section-title {
   font-family: var(--font-display);
-  font-size: clamp(26px, 3vw, 32px);
-  font-weight: 600;
-  line-height: 1.22;
-  letter-spacing: -0.02em;
-  color: #1c1c1c;
-  margin-bottom: 10px;
+  font-size: var(--text-4xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
 }
 
 .how-copy .section-subtitle,
@@ -121,7 +112,6 @@
   line-height: var(--lh-relaxed);
   color: var(--text-secondary);
   margin-bottom: var(--space-5);
-  max-width: 38em;
 }
 
 .product-features {
@@ -130,17 +120,15 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-4);
 }
 
 .product-features li {
   position: relative;
-  padding-left: 22px;
-  font-family: var(--font-family);
-  font-size: 16px;
-  line-height: 1.58;
-  color: rgba(17, 24, 39, 0.88);
-  max-width: 38em;
+  padding-left: var(--space-5);
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
 }
 
 .product-features li::before {
@@ -151,8 +139,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(var(--accent-rgb), 0.5);
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.12);
+  background: var(--accent);
 }
 
 .how-dry-block {
@@ -163,23 +150,24 @@
 
 .how-dry-title {
   font-family: var(--font-display);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-lg);
   font-weight: var(--fw-semibold);
   color: var(--text-primary);
-  margin: 0 0 10px 0;
+  margin: 0 0 var(--space-2) 0;
+  line-height: var(--lh-snug);
 }
 
 .how-dry-text {
-  font-size: var(--text-body);
-  line-height: 1.6;
-  color: var(--text-muted);
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
   margin: 0;
 }
 
 @media (max-width: 960px) {
   .how-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 44px;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
   }
 
   .how-copy {
@@ -195,7 +183,7 @@
 
 @media (max-width: 640px) {
   .how-diagram {
-    padding: 20px 18px 24px;
+    padding: var(--space-5) var(--space-4) var(--space-6);
   }
 
   .how-diagram-inner {

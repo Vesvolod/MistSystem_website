@@ -200,13 +200,22 @@ main {
   margin-bottom: var(--space-1);
 }
 
-.footer-nav a {
+/* Навигация и контакты в футере — вертикальный список, каждая ссылка с новой строки */
+.page-footer .footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.page-footer .footer-nav a {
   font-size: var(--text-base);
   color: var(--text-secondary);
   transition: color 0.2s ease;
+  display: block;
 }
 
-.footer-nav a:hover {
+.page-footer .footer-nav a:hover {
   color: var(--text-primary);
 }
 
@@ -219,6 +228,7 @@ main {
   gap: var(--space-4);
   margin-top: var(--space-10);
   padding-top: var(--space-6);
+  padding-right: 200px; /* место под плавающую кнопку WhatsApp */
   border-top: 1px solid var(--border);
   font-size: var(--text-sm);
   color: var(--text-muted);
@@ -286,5 +296,6 @@ main {
   .footer-meta {
     flex-direction: column;
     align-items: flex-start;
+    padding-right: 80px; /* место под компактную кнопку WhatsApp на мобильных */
   }
 }

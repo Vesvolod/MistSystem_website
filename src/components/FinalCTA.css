@@ -1,37 +1,96 @@
 .final-cta-section {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-20);
-  background: var(--text-primary);
+  background: var(--bg-hero);
   color: var(--text-on-dark);
+}
+
+.final-cta-section.section {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
 }
 
 .final-cta-inner {
   text-align: center;
-  max-width: 520px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .final-cta-title {
-  font-size: clamp(22px, 3vw, 28px);
-  font-weight: var(--fw-semibold);
-  margin: 0 0 12px 0;
-  color: inherit;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-4) 0;
+  color: #ffffff;
 }
 
 .final-cta-subtitle {
-  font-size: var(--text-body);
-  line-height: 1.6;
-  opacity: 0.9;
-  margin: 0 0 22px 0;
+  font-size: var(--text-lg);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 var(--space-8) 0;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-cta-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.final-cta-trust-item {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  padding-left: 18px;
+}
+
+.final-cta-trust-item::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-sm);
 }
 
 .final-cta-btn {
-  min-height: 52px;
-  padding: 0 32px;
+  min-height: 56px;
+  padding: 0 var(--space-10);
+  font-size: var(--text-lg);
 }
 
 .final-cta-btn:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   color: #1a1a1a;
+}
+
+.final-cta-note {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 768px) {
+  .final-cta-section.section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .final-cta-trust {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .final-cta-btn {
+    width: 100%;
+    max-width: 320px;
+  }
 }
