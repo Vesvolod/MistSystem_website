@@ -3,12 +3,12 @@ import './App.css'
 import { useTranslation } from './context/LanguageContext'
 import { Hero } from './components/Hero'
 import { PainSolution } from './components/PainSolution'
-import { HowItWorks } from './components/HowItWorks'
-import { InstallationMap } from './components/InstallationMap'
 import { BeforeAfter } from './components/BeforeAfter'
+import { Comparison } from './components/Comparison'
+import { HowItWorks } from './components/HowItWorks'
+import { SocialProof } from './components/SocialProof'
 import { TrustProof } from './components/TrustProof'
 import { Calculator } from './components/Calculator'
-import { SocialProof } from './components/SocialProof'
 import { Pricing } from './components/Pricing'
 import { Process } from './components/Process'
 import { LeadForm } from './components/LeadForm'
@@ -38,6 +38,7 @@ function App() {
           </button>
           <nav id="header-nav" className={`header-nav ${navOpen ? 'header-nav-open' : ''}`}>
             <a href="#product" onClick={closeNav}>{t('nav.product')}</a>
+            <a href="#comparison" onClick={closeNav}>{t('nav.compare')}</a>
             <a href="#calculator" onClick={closeNav}>{t('nav.calculator')}</a>
             <a href="#cases" onClick={closeNav}>{t('nav.cases')}</a>
             <a href="#pricing" onClick={closeNav}>{t('nav.pricing')}</a>
@@ -59,12 +60,12 @@ function App() {
       <main>
         <Hero />
         <PainSolution />
-        <HowItWorks />
-        <InstallationMap />
         <BeforeAfter />
+        <Comparison />
+        <HowItWorks />
+        <SocialProof />
         <TrustProof />
         <Calculator />
-        <SocialProof />
         <Pricing />
         <Process />
         <LeadForm />

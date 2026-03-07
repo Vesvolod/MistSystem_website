@@ -1,7 +1,7 @@
 /* Заголовок и подзаголовок секции — слева, в одну линию с сеткой карточек */
 .social-section .section-header {
   max-width: 720px;
-  margin-bottom: 36px;
+  margin-bottom: 26px;
   text-align: left;
   margin-left: 0;
   margin-right: auto;
@@ -34,19 +34,18 @@
 
 .social-card {
   position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 20px;
-  padding: 36px 28px 32px;
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-sm);
 }
 
 .social-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 /* Бейдж категории — тот же overline/label, что и в Benefits */

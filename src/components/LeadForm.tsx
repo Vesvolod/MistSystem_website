@@ -15,6 +15,8 @@ export function LeadForm() {
     const name = String(formData.get('name') || '').trim()
     const phone = String(formData.get('phone') || '').trim()
     const context = String(formData.get('context') || '').trim()
+    const city = String(formData.get('city') || '').trim()
+    const area = String(formData.get('area') || '').trim()
     const comment = String(formData.get('comment') || '').trim()
 
     if (!name || !phone) {
@@ -30,6 +32,8 @@ export function LeadForm() {
       `Name: ${name}`,
       `WhatsApp: ${phone}`,
       context ? `Venue type: ${context}` : null,
+      city ? `City / Area: ${city}` : null,
+      area ? `Outdoor area: ${area} m²` : null,
       comment ? `Notes: ${comment}` : null,
     ]
       .filter(Boolean)
@@ -48,6 +52,7 @@ export function LeadForm() {
         <div className="lead-copy">
           <h2 className="section-title">{t('lead.title')}</h2>
           <p className="section-subtitle">{t('lead.subtitle')}</p>
+          <p className="lead-reassurance">{t('lead.reassurance')}</p>
           <div className="lead-value">
             <p className="lead-value-title">{t('lead.whatYouGetTitle')}</p>
             <ul className="lead-value-list">
@@ -93,6 +98,14 @@ export function LeadForm() {
                 <option value="business">{t('lead.contextBusiness')}</option>
                 <option value="other">{t('lead.contextOther')}</option>
               </select>
+            </div>
+            <div className="lead-field">
+              <label htmlFor="city">{t('lead.cityLabel')}</label>
+              <input id="city" name="city" type="text" placeholder={t('lead.cityPlaceholder')} />
+            </div>
+            <div className="lead-field">
+              <label htmlFor="area">{t('lead.areaLabel')}</label>
+              <input id="area" name="area" type="text" inputMode="numeric" placeholder={t('lead.areaPlaceholder')} />
             </div>
             <div className="lead-field">
               <label htmlFor="comment">{t('lead.commentLabel')}</label>

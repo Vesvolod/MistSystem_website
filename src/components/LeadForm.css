@@ -1,17 +1,17 @@
 .lead-section {
-  background: var(--bg-light);
+  background: var(--bg-card);
   position: relative;
   overflow: hidden;
 }
 
 .lead-section.section {
-  padding-bottom: 80px;
+  padding-bottom: 56px;
 }
 
 .lead-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 48px;
   align-items: start;
   position: relative;
   z-index: 1;
@@ -25,20 +25,27 @@
 }
 
 .lead-copy .section-subtitle {
-  font-size: 18px;
-  line-height: 1.68;
-  color: rgba(17, 24, 39, 0.82);
-  margin-bottom: 28px;
+  font-size: var(--text-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
   max-width: 420px;
 }
 
-/* Блок «что получите» — компактный, легко сканировать */
+.lead-reassurance {
+  font-size: var(--text-base);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  max-width: 420px;
+}
+
 .lead-value {
   margin-top: 0;
-  padding: 20px 20px 16px;
+  padding: var(--space-5);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  background: rgba(15, 23, 42, 0.02);
+  border: 1px solid var(--border);
+  background: var(--bg-muted);
 }
 
 .lead-value-title {
@@ -108,10 +115,10 @@
 
 /* ─── Форма: типографика и отступы в системе страницы ─── */
 .lead-form-wrapper {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 36px 32px 32px;
+  padding: var(--space-8) var(--space-8) var(--space-6);
   box-shadow: var(--shadow-sm);
 }
 
@@ -204,7 +211,7 @@
 @media (max-width: 768px) {
   .lead-layout {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
   .lead-form-wrapper {

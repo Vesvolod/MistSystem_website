@@ -191,6 +191,8 @@ export function Calculator() {
           </div>
         </div>
 
+        <p className="calculator-electricity-note">{t('calculator.electricityNote')}</p>
+
         <div className="calculator-bottom-cta">
           <a href="#lead-form" className="btn btn-primary">
             {t('calculator.ctaAfter')}

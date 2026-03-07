@@ -1,28 +1,27 @@
 .how-section {
-  background: var(--bg-dark-2);
+  background: var(--bg-muted);
 }
 
 .how-section.section {
-  padding-top: 64px;
-  padding-bottom: 68px;
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
 }
 
 .how-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 52px;
+  gap: var(--space-12);
   align-items: center;
 }
 
 .how-diagram {
   width: 100%;
-  max-width: 720px;
-  background: #ffffff;
+  max-width: 640px;
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
-  padding: 20px 20px 22px;
-  position: relative;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.04);
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .how-diagram-inner {
@@ -118,12 +117,11 @@
 
 .how-copy .section-subtitle,
 .how-lead {
-  font-size: 17px;
-  line-height: 1.65;
-  color: rgba(17, 24, 39, 0.82);
-  margin-bottom: 20px;
+  font-size: var(--text-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-5);
   max-width: 38em;
-  font-weight: var(--fw-normal);
 }
 
 .product-features {
@@ -158,9 +156,9 @@
 }
 
 .how-dry-block {
-  margin-top: 28px;
-  padding: 20px 0 0;
-  border-top: 1px solid var(--border-soft);
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
 }
 
 .how-dry-title {

@@ -1,11 +1,11 @@
 .pricing-section {
-  background: var(--bg-dark-2);
+  background: var(--bg-muted);
   position: relative;
 }
 
 .pricing-section .section-header {
   max-width: 720px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .pricing-grid {
@@ -20,32 +20,30 @@
 /* Базовая карточка — сдержанная, не перетягивает внимание */
 .pricing-card {
   position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  border-radius: 22px;
-  padding: 40px 28px 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-6);
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s, border-color 0.35s;
-  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .pricing-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(15, 23, 42, 0.11);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 
-/* Средняя карточка — основная рекомендация, очень лёгкий акцент */
 .pricing-card-featured {
-  border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
-  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(var(--accent-rgb), 0.25);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
 }
 
 .pricing-card-featured:hover {
-  border-color: rgba(15, 23, 42, 0.16);
-  box-shadow: var(--shadow-sm);
+  border-color: rgba(var(--accent-rgb), 0.35);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Лейбл конфигурации — как overline в Benefits/Social, тихо и премиально */

@@ -1,23 +1,23 @@
 .trust-section {
-  background: var(--bg-light);
+  background: var(--bg-card);
 }
 
 .trust-header {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .trust-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 18px;
   max-width: 920px;
-  margin: 0 auto 40px;
+  margin: 0 auto 28px;
 }
 
 .trust-card {
   padding: 24px 20px;
   background: var(--bg-light);
-  border: 1px solid var(--border-soft);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
 
@@ -39,16 +39,16 @@
 .trust-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
   max-width: 900px;
-  margin: 0 auto 36px;
+  margin: 0 auto 26px;
 }
 
 .trust-gallery-slot {
   aspect-ratio: 16/10;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: var(--bg-dark-2);
+  background: var(--bg-muted);
 }
 
 .trust-gallery-slot img {
@@ -73,7 +73,7 @@
 }
 
 .trust-footer-note {
-  margin-top: 28px;
+  margin-top: 20px;
   font-size: var(--text-caption);
   color: var(--text-muted);
   text-align: center;
@@ -85,7 +85,7 @@
   justify-content: center;
   padding: 16px 20px;
   background: var(--bg-light);
-  border: 1px solid var(--border-soft);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   min-height: 72px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -114,13 +114,13 @@
 @media (max-width: 768px) {
   .trust-cards {
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 14px;
+    margin-bottom: 24px;
   }
 
   .trust-gallery {
     grid-template-columns: 1fr;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
 
   .trust-logos {
@@ -139,6 +139,6 @@
   }
 
   .trust-footer-note {
-    margin-top: 22px;
+    margin-top: 16px;
   }
 }

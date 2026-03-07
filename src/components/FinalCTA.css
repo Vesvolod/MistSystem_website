@@ -1,8 +1,8 @@
 .final-cta-section {
-  padding-top: 72px;
-  padding-bottom: 88px;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-20);
   background: var(--text-primary);
-  color: var(--bg-light);
+  color: var(--text-on-dark);
 }
 
 .final-cta-inner {
@@ -22,7 +22,7 @@
   font-size: var(--text-body);
   line-height: 1.6;
   opacity: 0.9;
-  margin: 0 0 28px 0;
+  margin: 0 0 22px 0;
 }
 
 .final-cta-btn {
@@ -31,7 +31,7 @@
 }
 
 .final-cta-btn:hover {
-  background: #c98e17;
-  border-color: #c98e17;
-  color: #1e1e1a;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #1a1a1a;
 }
